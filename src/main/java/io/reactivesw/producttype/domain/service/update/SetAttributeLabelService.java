@@ -1,12 +1,12 @@
 package io.reactivesw.producttype.domain.service.update;
 
+import io.reactivesw.model.Updater;
 import io.reactivesw.producttype.application.model.action.SetAttributeLabel;
 import io.reactivesw.producttype.application.model.mapper.LocalizedStringMapper;
 import io.reactivesw.producttype.domain.model.LocalizedStringValue;
 import io.reactivesw.producttype.domain.model.ProductType;
 import io.reactivesw.producttype.infrastructure.update.ProductTypeActionUtils;
 import io.reactivesw.producttype.infrastructure.update.UpdateAction;
-import io.reactivesw.producttype.infrastructure.update.Updater;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
  * Created by Davis on 16/12/12.
  */
 @Service(value = ProductTypeActionUtils.SET_ATTRIBUTE_DEFINITION_LABEL)
-public class SetAttributeLabelService extends Updater {
+public class SetAttributeLabelService implements Updater<ProductType, UpdateAction> {
   /**
    * set attribute label.
    *
@@ -31,7 +31,7 @@ public class SetAttributeLabelService extends Updater {
     String attributeName = setAttributeLabel.getAttributeName();
     Set<LocalizedStringValue> label = LocalizedStringMapper.modelToEntityDefaultNew
         (setAttributeLabel
-        .getLabel());
+            .getLabel());
 
     List attributes = entity.getAttributes().stream().map(
         attribute -> {

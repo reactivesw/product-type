@@ -1,5 +1,6 @@
 package io.reactivesw.producttype.domain.service.update;
 
+import io.reactivesw.model.Updater;
 import io.reactivesw.producttype.application.model.action.SetAttributeInputTip;
 import io.reactivesw.producttype.application.model.mapper.LocalizedStringMapper;
 import io.reactivesw.producttype.domain.model.AttributeDefinition;
@@ -7,7 +8,6 @@ import io.reactivesw.producttype.domain.model.LocalizedStringValue;
 import io.reactivesw.producttype.domain.model.ProductType;
 import io.reactivesw.producttype.infrastructure.update.ProductTypeActionUtils;
 import io.reactivesw.producttype.infrastructure.update.UpdateAction;
-import io.reactivesw.producttype.infrastructure.update.Updater;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
  * Created by Davis on 16/12/12.
  */
 @Service(value = ProductTypeActionUtils.SET_ATTRIBUTE_DEFINITION_INPUTTIP)
-public class SetAttributeInputTipService extends Updater {
+public class SetAttributeInputTipService implements Updater<ProductType, UpdateAction> {
   /**
    * set attribute input tip.
    *

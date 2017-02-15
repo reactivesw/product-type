@@ -1,18 +1,18 @@
 package io.reactivesw.producttype.domain.service.update;
 
+import io.reactivesw.model.Updater;
 import io.reactivesw.producttype.application.model.action.SetPlainEnumValueLabel;
 import io.reactivesw.producttype.application.model.attributes.EnumAttributeType;
 import io.reactivesw.producttype.domain.model.ProductType;
 import io.reactivesw.producttype.infrastructure.update.ProductTypeActionUtils;
 import io.reactivesw.producttype.infrastructure.update.UpdateAction;
-import io.reactivesw.producttype.infrastructure.update.Updater;
 import org.springframework.stereotype.Service;
 
 /**
  * Created by Davis on 17/1/3.
  */
 @Service(value = ProductTypeActionUtils.SET_ENUM_VALUE_LABEL)
-public class SetPlainEnumValueLabelService extends Updater {
+public class SetPlainEnumValueLabelService implements Updater<ProductType, UpdateAction> {
 
   /**
    * set enum value label.

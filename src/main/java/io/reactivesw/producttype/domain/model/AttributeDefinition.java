@@ -31,10 +31,10 @@ import javax.persistence.Table;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Entity
-@Table(name = "catalog_product_type_attribute_definition")
+@Table(name = "attribute_definition")
 @TypeDef(name = "attributeType", typeClass = JSONBUserType.class, parameters = {
     @Parameter(name = JSONBUserType.CLASS,
-        value = "io.reactivesw.catalog.product.application.model.attributes.AttributeType")}
+        value = "io.reactivesw.producttype.application.model.attributes.AttributeType")}
 )
 public class AttributeDefinition {
 

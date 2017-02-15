@@ -10,7 +10,7 @@ import io.reactivesw.producttype.application.model.mapper.ProductTypeMapper;
 import io.reactivesw.producttype.domain.model.ProductType;
 import io.reactivesw.producttype.infrastructure.repository.ProductTypeRepository;
 import io.reactivesw.producttype.infrastructure.update.UpdateAction;
-import io.reactivesw.producttype.infrastructure.update.Updater;
+import io.reactivesw.producttype.infrastructure.update.UpdaterService;
 import io.reactivesw.producttype.infrastructure.validator.AttributeDefinitionNameValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,7 +40,7 @@ public class ProductTypeService {
    * ProductTypeUpdateService.
    */
   @Autowired
-  private transient Updater updateService;
+  private transient UpdaterService updateService;
 
   /**
    * Create product type.

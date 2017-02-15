@@ -1,12 +1,12 @@
 package io.reactivesw.producttype.domain.service.update;
 
 import io.reactivesw.exception.ParametersException;
+import io.reactivesw.model.Updater;
 import io.reactivesw.producttype.application.model.action.SetAttributeOrder;
 import io.reactivesw.producttype.domain.model.AttributeDefinition;
 import io.reactivesw.producttype.domain.model.ProductType;
 import io.reactivesw.producttype.infrastructure.update.ProductTypeActionUtils;
 import io.reactivesw.producttype.infrastructure.update.UpdateAction;
-import io.reactivesw.producttype.infrastructure.update.Updater;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
  * Created by Davis on 16/12/12.
  */
 @Service(value = ProductTypeActionUtils.SET_ATTRIBUTE_ORDER)
-public class SetAttributeOrderService extends Updater {
+public class SetAttributeOrderService implements Updater<ProductType, UpdateAction> {
   /**
    * change attribute order.
    * The attributes must be equal to the product type attributes (except for the order).

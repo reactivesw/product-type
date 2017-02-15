@@ -2,13 +2,13 @@ package io.reactivesw.producttype.domain.service.update;
 
 import io.reactivesw.exception.NotExistException;
 import io.reactivesw.exception.ParametersException;
+import io.reactivesw.model.Updater;
 import io.reactivesw.producttype.application.model.action.SetPlainEnumValueOrder;
 import io.reactivesw.producttype.application.model.attributes.EnumAttributeType;
 import io.reactivesw.producttype.domain.model.AttributeDefinition;
 import io.reactivesw.producttype.domain.model.ProductType;
 import io.reactivesw.producttype.infrastructure.update.ProductTypeActionUtils;
 import io.reactivesw.producttype.infrastructure.update.UpdateAction;
-import io.reactivesw.producttype.infrastructure.update.Updater;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
  * Created by Davis on 17/1/2.
  */
 @Service(value = ProductTypeActionUtils.SET_ENUM_VALUE_ORDER)
-public class SetPlainEnumValueOrderService extends Updater {
+public class SetPlainEnumValueOrderService implements Updater<ProductType, UpdateAction> {
   /**
    * set plain enum value order.
    *

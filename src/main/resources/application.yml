@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8089
 
 logging:
   level:
@@ -18,5 +18,6 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
-  profiles:
-    active: test
+
+jwt:
+  secret: QWERTYUIOLHGFDS

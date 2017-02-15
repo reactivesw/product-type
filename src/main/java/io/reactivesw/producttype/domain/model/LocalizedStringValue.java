@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * Created by Davis on 16/11/16.
  */
 @Entity
-@Table(name = "common_localized_String")
+@Table(name = "localized_String")
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class LocalizedStringValue {

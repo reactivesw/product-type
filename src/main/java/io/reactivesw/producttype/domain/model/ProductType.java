@@ -25,7 +25,7 @@ import javax.persistence.Version;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Entity
-@Table(name = "catalog_product_type")
+@Table(name = "product_type")
 public class ProductType {
 
 

@@ -1,6 +1,7 @@
 package io.reactivesw.producttype.infrastructure.update;
 
 import com.google.common.collect.ImmutableMap;
+import io.reactivesw.model.Updater;
 import io.reactivesw.producttype.domain.model.ProductType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -15,7 +16,7 @@ import java.util.Map;
  * Created by umasuo on 16/12/7.
  */
 @Service
-public class Updater {
+public class UpdaterService implements Updater<ProductType, UpdateAction> {
 
   /**
    * ImmutableMap for discount code update mapper.
@@ -36,6 +37,7 @@ public class Updater {
    * @param entity E
    * @param action UpdateAction
    */
+  @Override
   public void handle(ProductType entity, UpdateAction action) {
     Updater updater = getUpdateService(action.getClass());
     updater.handle(entity, action);
