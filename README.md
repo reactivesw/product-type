@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/reactivesw/producttype.svg?branch=master)](https://travis-ci.org/reactivesw/producttype)
 # 1, Name
 product type service
 
