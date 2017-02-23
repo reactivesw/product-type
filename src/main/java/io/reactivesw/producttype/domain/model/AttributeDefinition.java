@@ -34,7 +34,7 @@ import javax.persistence.Table;
 @Table(name = "attribute_definition")
 @TypeDef(name = "attributeType", typeClass = JSONBUserType.class, parameters = {
     @Parameter(name = JSONBUserType.CLASS,
-        value = "io.reactivesw.producttype.application.model.attributes.AttributeType")}
+        value = "io.reactivesw.producttype.controller.model.attributes.AttributeType")}
 )
 public class AttributeDefinition {
 

@@ -1,4 +1,4 @@
-package io.reactivesw.producttype.application.application;
+package io.reactivesw.producttype.application.controller;
 
 import io.reactivesw.producttype.application.model.PagedQueryResult;
 import io.reactivesw.producttype.application.model.ProductTypeDraft;
