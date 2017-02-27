@@ -1,6 +1,6 @@
 spring:
   application:
-    name: product-type-service
+    name: product-type
   cloud:
     config:
       uri: http://localhost:8888/
