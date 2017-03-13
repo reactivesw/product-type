@@ -45,6 +45,9 @@ dependencies {
     //postgresql driver
     compile('org.postgresql:postgresql:9.4.1212')
 
+    //for @CreatedDate and @LastModifiedDate
+    compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.5')
+
     //common tool
     compile('org.apache.commons:commons-collections4:4.1')
     compile('org.apache.commons:commons-lang3:3.4')
