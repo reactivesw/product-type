@@ -1,127 +1,62 @@
 package io.reactivesw.producttype.application.model;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Created by Davis on 16/11/21.
  */
-@ApiModel
+@Getter
+@Setter
 public class QueryConditions {
 
-  @ApiModelProperty(required = false)
-  String expandId;
+  /**
+   * The Expand id.
+   */
+  private String expandId;
 
-  @ApiModelProperty(required = false)
-  Integer version;
+  /**
+   * The Version.
+   */
+  private Integer version;
 
   /**
    * name(en="Pro T-Shirt")
    */
-  @ApiModelProperty(required = false)
-  String where;
+  private String where;
 
   /**
    * name.em
    */
-  @ApiModelProperty(required = false)
-  String sort;
+  private String sort;
 
-  @ApiModelProperty(required = false)
-  String sortOrder;
+  /**
+   * The Sort order.
+   */
+  private String sortOrder;
 
-  @ApiModelProperty(required = false)
-  String page;
+  /**
+   * The Page.
+   */
+  private String page;
 
-  @ApiModelProperty(required = false)
-  String perPage;
+  /**
+   * The Per page.
+   */
+  private String perPage;
 
-  @ApiModelProperty(required = false)
-  String expand;
+  /**
+   * The Expand.
+   */
+  private String expand;
 
-  @ApiModelProperty(required = false)
-  Boolean staged;
+  /**
+   * The Staged.
+   */
+  private Boolean staged;
 
-  @ApiModelProperty(required = false)
-  Boolean stagedId;
-
-  public String getExpandId() {
-    return expandId;
-  }
-
-  public void setExpandId(String expandId) {
-    this.expandId = expandId;
-  }
-
-  public Integer getVersion() {
-    return version;
-  }
-
-  public void setVersion(Integer version) {
-    this.version = version;
-  }
-
-  public String getWhere() {
-    return where;
-  }
-
-  public void setWhere(String where) {
-    this.where = where;
-  }
-
-  public String getSort() {
-    return sort;
-  }
-
-  public void setSort(String sort) {
-    this.sort = sort;
-  }
-
-  public String getSortOrder() {
-    return sortOrder;
-  }
-
-  public void setSortOrder(String sortOrder) {
-    this.sortOrder = sortOrder;
-  }
-
-  public String getPage() {
-    return page;
-  }
-
-  public void setPage(String page) {
-    this.page = page;
-  }
-
-  public String getPerPage() {
-    return perPage;
-  }
-
-  public void setPerPage(String perPage) {
-    this.perPage = perPage;
-  }
-
-  public String getExpand() {
-    return expand;
-  }
-
-  public void setExpand(String expand) {
-    this.expand = expand;
-  }
-
-  public Boolean getStaged() {
-    return staged;
-  }
-
-  public void setStaged(Boolean staged) {
-    this.staged = staged;
-  }
-
-  public Boolean getStagedId() {
-    return stagedId;
-  }
-
-  public void setStagedId(Boolean stagedId) {
-    this.stagedId = stagedId;
-  }
+  /**
+   * The Staged id.
+   */
+  private Boolean stagedId;
 }

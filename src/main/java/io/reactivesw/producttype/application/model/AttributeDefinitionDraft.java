@@ -1,11 +1,11 @@
 package io.reactivesw.producttype.application.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import io.reactivesw.model.LocalizedString;
 import io.reactivesw.producttype.application.model.attributes.AttributeConstraint;
 import io.reactivesw.producttype.application.model.attributes.AttributeType;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
@@ -15,14 +15,12 @@ import javax.validation.constraints.Pattern;
  * Created by Davis on 16/11/17.
  */
 @Data
-@ApiModel
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AttributeDefinitionDraft {
 
   /**
    * Describes the type of the attribute.
    */
-  @ApiModelProperty(required = true)
   @NotNull
   private AttributeType type;
 
@@ -35,7 +33,6 @@ public class AttributeDefinitionDraft {
    * The important constraint is: all fields of the AttributeDefinitionView
    * need to be the same across all attributes with the same name.
    */
-  @ApiModelProperty(required = true)
   @NotNull
   @Pattern(regexp="[-a-zA-Z0-9_]{2,256}", message = "can not match attribute name")
   private String name;
@@ -43,14 +40,12 @@ public class AttributeDefinitionDraft {
   /**
    * A human-readable label for the attribute.
    */
-  @ApiModelProperty(required = true)
   @NotNull
   private LocalizedString label;
 
   /**
    * Whether the attribute is required to have a value.
    */
-  @ApiModelProperty(required = true)
   @NotNull
   private Boolean isRequired;
 
@@ -58,7 +53,6 @@ public class AttributeDefinitionDraft {
    * Describes how an attribute or a set of attributes
    * should be validated across all variants of a product.
    */
-  @ApiModelProperty(required = true)
   @NotNull
   private AttributeConstraint attributeConstraint;
 
@@ -66,7 +60,6 @@ public class AttributeDefinitionDraft {
    * Provides a visual representation type for this attribute.
    * only relevant for text-based attribute model like TextType and LocalizableTextType.
    */
-  @ApiModelProperty(required = false)
   private TextInputHint inputHint;
 
   /**
@@ -76,13 +69,11 @@ public class AttributeDefinitionDraft {
    * query. The exact features that are enabled/disabled with this flag depend on the concrete
    * attribute type and are described there.
    */
-  @ApiModelProperty(required = true)
   @NotNull
   private Boolean isSearchable;
 
   /**
    * inputTip.
    */
-  @ApiModelProperty(required = false)
   private LocalizedString inputTip;
 }

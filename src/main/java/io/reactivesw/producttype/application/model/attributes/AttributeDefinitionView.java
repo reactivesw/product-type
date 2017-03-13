@@ -1,24 +1,22 @@
 package io.reactivesw.producttype.application.model.attributes;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+
 import io.reactivesw.model.LocalizedString;
 import io.reactivesw.producttype.application.model.TextInputHint;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
 import lombok.Data;
 
 /**
  * Created by Davis on 16/11/16.
  */
 @Data
-@ApiModel
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AttributeDefinitionView {
 
   /**
    * Describes the type of the attribute.
    */
-  @ApiModelProperty(required = true)
   private AttributeType type;
 
   /**
@@ -31,7 +29,6 @@ public class AttributeDefinitionView {
    * all fields of the AttributeDefinitionView need to
    * be the same across all attributes with the same name.
    */
-  @ApiModelProperty(required = true)
   private String name;
 
   /**
@@ -43,27 +40,23 @@ public class AttributeDefinitionView {
    * Additional information about the attribute that aids content managers
    * when setting product details.
    */
-  @ApiModelProperty(required = false)
   private LocalizedString inputTip;
 
   /**
    * Whether the attribute is required to have a value.
    */
-  @ApiModelProperty(required = true)
   private Boolean isRequired;
 
   /**
    * Describes how an attribute or a set of attributes
    * should be validated across all variants of a product.
    */
-  @ApiModelProperty(required = true)
   private AttributeConstraint attributeConstraint;
 
   /**
    * Provides a visual representation type for this attribute.
    * only relevant for text-based attribute model like TextType and LocalizableTextType.
    */
-  @ApiModelProperty(required = false)
   private TextInputHint inputHint;
 
   /**
@@ -77,6 +70,5 @@ public class AttributeDefinitionView {
    * This constraint is enforced at both product creation and product update.
    * If the length of the input exceeds the maximum size an InvalidField error is returned.
    */
-  @ApiModelProperty(required = false)
   private Boolean isSearchable;
 }

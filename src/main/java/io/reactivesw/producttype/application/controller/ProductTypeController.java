@@ -7,9 +7,7 @@ import io.reactivesw.producttype.application.model.QueryConditions;
 import io.reactivesw.producttype.domain.service.ProductTypeService;
 import io.reactivesw.producttype.infrastructure.Router;
 import io.reactivesw.producttype.infrastructure.update.UpdateRequest;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +27,6 @@ import javax.validation.constraints.NotNull;
 /**
  * Created by Davis on 16/12/7.
  */
-@ApiModel
 @RestController
 public class ProductTypeController {
   /**
@@ -54,10 +51,8 @@ public class ProductTypeController {
    * @param productTypeDraft the product type draft
    * @return the product type
    */
-  @ApiOperation("Create ProductType")
   @PostMapping(Router.PRODUCT_TYPE_ROOT)
   public ProductTypeView createProductType(@RequestBody
-                                           @ApiParam(value = "ProductType Draft", required = true)
                                            @Valid ProductTypeDraft productTypeDraft) {
     LOG.debug("enter createProductType, draft is:{}", productTypeDraft.toString());
 
@@ -74,14 +69,9 @@ public class ProductTypeController {
    * @param id      the id
    * @param version the version
    */
-  @ApiOperation(value = "Delete ProductType By Id")
   @DeleteMapping(Router.PRODUCT_TYPE_WITH_ID)
-  public void deleteProductTypeById(@PathVariable(value = Router.PRODUCT_TYPE_ID)
-                                    @ApiParam(value = PRODUCT_TYPE_ID_STRING, required = true)
-                                        String id,
-                                    @RequestParam
-                                    @ApiParam(value = "ProductType Version", required = true)
-                                    @NotNull Integer version) {
+  public void deleteProductTypeById(@PathVariable(value = Router.PRODUCT_TYPE_ID) String id,
+                                    @RequestParam @NotNull Integer version) {
     LOG.debug("enter deleteProductTypeById, id is : {}, version is : {}", id, version);
 
     productTypeService.deleteProductTypeById(id, version);
@@ -95,14 +85,9 @@ public class ProductTypeController {
    * @param key     the id
    * @param version the version
    */
-  @ApiOperation(value = "Delete ProductType By Key")
   @DeleteMapping(Router.PRODUCT_TYPE_WITH_KEY)
-  public void deleteProductTypeByKey(@PathVariable(value = Router.PRODUCT_TYPE_KEY)
-                                     @ApiParam(value = "ProductType Key", required = true)
-                                         String key,
-                                     @RequestParam
-                                     @ApiParam(value = "ProductType Version", required = true)
-                                     @NotNull Integer version) {
+  public void deleteProductTypeByKey(@PathVariable(value = Router.PRODUCT_TYPE_KEY) String key,
+                                     @RequestParam @NotNull Integer version) {
     LOG.debug("enter deleteProductTypeById, key is : {}, version is : {}", key, version);
 
     productTypeService.deleteProductTypeByKey(key, version);
@@ -118,18 +103,10 @@ public class ProductTypeController {
    * @param updateRequest the update request
    * @return the ProductType
    */
-  @ApiOperation(value = "UpdateProductType By Id")
   @PutMapping(Router.PRODUCT_TYPE_WITH_ID)
   public ProductTypeView updateProductTypeById(@PathVariable(value = Router.PRODUCT_TYPE_ID)
-                                               @ApiParam(value = PRODUCT_TYPE_ID_STRING,
-                                                   required = true)
                                                    String id,
-                                               @RequestBody
-                                               @ApiParam(value = "ProductType Update Fields",
-                                                   required = true)
-                                               @Valid
-                                                   UpdateRequest
-                                                   updateRequest) {
+                                               @RequestBody @Valid UpdateRequest updateRequest) {
     LOG.debug("enter updateProductTypeById,id is {}, update request is {}",
         id, updateRequest.toString());
 
@@ -149,17 +126,10 @@ public class ProductTypeController {
    * @param updateRequest the update request
    * @return the ProductType
    */
-  @ApiOperation(value = "UpdateProductType By key")
   @PutMapping(Router.PRODUCT_TYPE_WITH_KEY)
   public ProductTypeView updateProductTypeByKey(@PathVariable(value = Router.PRODUCT_TYPE_ID)
-                                                @ApiParam(value = PRODUCT_TYPE_ID_STRING,
-                                                    required = true)
                                                     String key,
-                                                @RequestBody
-                                                @ApiParam(value = "ProductType Update Fields",
-                                                    required = true)
-                                                @Valid
-                                                    UpdateRequest updateRequest) {
+                                                @RequestBody @Valid UpdateRequest updateRequest) {
     LOG.debug("enter updateProductTypeById,key is {}, update request is {}",
         key, updateRequest.toString());
 
@@ -178,12 +148,9 @@ public class ProductTypeController {
    * @param id the id
    * @return the product type
    */
-  @ApiOperation(value = "get ProductType by id")
   @GetMapping(Router.PRODUCT_TYPE_WITH_ID)
-  public ProductTypeView getProductTypeById(@PathVariable(value = Router.PRODUCT_TYPE_ID)
-                                            @ApiParam(value = PRODUCT_TYPE_ID_STRING, required =
-                                                true)
-                                                String id) {
+  public ProductTypeView getProductTypeById(@PathVariable(value = Router.PRODUCT_TYPE_ID) String
+                                                id) {
     LOG.debug("enter getProductTypeById, id is:{}", id);
     ProductTypeView result = productTypeService.getProductTypeById(id);
     LOG.debug("end getProductTypeById, get ProductType : {}", result.toString());
@@ -196,10 +163,8 @@ public class ProductTypeController {
    * @param key the key
    * @return the product type
    */
-  @ApiOperation(value = "get ProductType by key")
   @GetMapping(Router.PRODUCT_TYPE_WITH_KEY)
   public ProductTypeView getProductTypeByKey(@PathVariable(value = Router.PRODUCT_TYPE_KEY)
-                                             @ApiParam(value = "ProductTyle key", required = true)
                                                  String key) {
     LOG.debug("enter getProductTypeByKey, key is : {}", key);
 
@@ -216,7 +181,6 @@ public class ProductTypeController {
    * @param queryConditions the query conditions
    * @return the paged query result
    */
-  @ApiOperation(value = "query ProductType")
   @GetMapping(Router.PRODUCT_TYPE_ROOT)
   public PagedQueryResult<ProductTypeView> queryProductTypes(QueryConditions queryConditions) {
     LOG.debug("enter queryProductTypes, QueryConditions is : {}", queryConditions.toString());
