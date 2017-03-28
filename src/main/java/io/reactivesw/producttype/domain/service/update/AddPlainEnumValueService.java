@@ -3,11 +3,12 @@ package io.reactivesw.producttype.domain.service.update;
 import io.reactivesw.model.Updater;
 import io.reactivesw.producttype.application.model.EnumValue;
 import io.reactivesw.producttype.application.model.action.AddPlainEnumValue;
-import io.reactivesw.producttype.application.model.attributes.EnumAttributeType;
+import io.reactivesw.producttype.application.model.attributes.EnumAbstractAttributeType;
 import io.reactivesw.producttype.application.model.mapper.EnumValueMapper;
 import io.reactivesw.producttype.domain.model.ProductType;
 import io.reactivesw.producttype.infrastructure.update.ProductTypeActionUtils;
 import io.reactivesw.producttype.infrastructure.update.UpdateAction;
+
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
@@ -27,18 +28,19 @@ public class AddPlainEnumValueService implements Updater<ProductType, UpdateActi
   public void handle(ProductType entity, UpdateAction action) {
     AddPlainEnumValue addPlainEnumValue = (AddPlainEnumValue) action;
     String attributeName = addPlainEnumValue.getAttributeName();
-    EnumValue enumValue = EnumValueMapper.modelToEntity(addPlainEnumValue.getValue());
+    EnumValue enumValue = EnumValueMapper.toEntity(addPlainEnumValue.getValue());
 
     entity.getAttributes()
-        .stream().forEach(
-        attribute -> {
-          if (Objects.equals(attributeName, attribute.getName())) {
-            EnumAttributeType enumAttributeType = (EnumAttributeType) attribute.getType();
-            // TODO: 16/12/12 if values is null?
-            enumAttributeType.getValues().add(enumValue);
-            attribute.setType(enumAttributeType);
-          }
-        }
-    );
+        .stream()
+        .forEach(
+            attribute -> {
+              if (Objects.equals(attributeName, attribute.getName())) {
+                EnumAbstractAttributeType enumAttributeType = (EnumAbstractAttributeType) attribute
+                    .getType();
+                // TODO: 16/12/12 if values is null?
+                enumAttributeType.getValues().add(enumValue);
+                attribute.setType(enumAttributeType);
+              }
+            });
   }
 }

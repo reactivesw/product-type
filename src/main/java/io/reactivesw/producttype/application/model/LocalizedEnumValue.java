@@ -12,12 +12,12 @@ import lombok.Data;
 public class LocalizedEnumValue {
 
   /**
-   * The key of the value used as a programmatic identifier, e.g. in facets & filters.
+   * The key build the value used as a programmatic identifier, e.g. in facets & filters.
    */
   private String key;
 
   /**
-   * A descriptive, localized label of the value.
+   * A descriptive, localized label build the value.
    */
   private LocalizedString label;
 }

@@ -3,6 +3,7 @@ package io.reactivesw.producttype.application.model.action;
 import io.reactivesw.model.LocalizedString;
 import io.reactivesw.producttype.infrastructure.update.ProductTypeActionUtils;
 import io.reactivesw.producttype.infrastructure.update.UpdateAction;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,6 +29,10 @@ public class SetAttributeLabel implements UpdateAction {
   @NotNull
   private LocalizedString label;
 
+  /**
+   * get update service name.
+   * @return set_attribute_label
+   */
   @Override
   public String getActionName() {
     return ProductTypeActionUtils.SET_ATTRIBUTE_DEFINITION_LABEL;

@@ -12,6 +12,7 @@ import io.reactivesw.producttype.infrastructure.repository.ProductTypeRepository
 import io.reactivesw.producttype.infrastructure.update.UpdateAction;
 import io.reactivesw.producttype.infrastructure.update.UpdaterService;
 import io.reactivesw.producttype.infrastructure.validator.AttributeDefinitionNameValidator;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,11 +54,11 @@ public class ProductTypeService {
 
     AttributeDefinitionNameValidator.validate(productTypeDraft);
 
-    ProductType entity = ProductTypeMapper.modelToEntity(productTypeDraft);
+    ProductType entity = ProductTypeMapper.toEntity(productTypeDraft);
 
     ProductType savedEntity = productTypeRepository.save(entity);
 
-    ProductTypeView result = ProductTypeMapper.entityToModel(savedEntity);
+    ProductTypeView result = ProductTypeMapper.toModel(savedEntity);
 
     LOG.debug("end createProductType, new product type is:{}", result.toString());
     return result;
@@ -112,7 +113,8 @@ public class ProductTypeService {
    * @param actions the actions
    * @return the updated ProductType
    */
-  public ProductTypeView updateProductTypeById(String id, Integer version, List<UpdateAction> actions) {
+  public ProductTypeView updateProductTypeById(String id, Integer version, List<UpdateAction>
+      actions) {
     LOG.debug("enter updateProductTypeById, id is : {}, version is : {}, update actions is : {}",
         id, version, actions);
 
@@ -132,7 +134,7 @@ public class ProductTypeService {
    * @return the updated ProductType
    */
   public ProductTypeView updateProductTypeByKey(String key, Integer version,
-                                            List<UpdateAction> actions) {
+                                                List<UpdateAction> actions) {
     LOG.debug("enter updateProductTypeByKey, key is : {}, version is : {}, update actions is : {}",
         key, version, actions);
 
@@ -153,7 +155,7 @@ public class ProductTypeService {
     LOG.debug("enter getProductTypeById, id is:{}", id);
 
     ProductType entity = getProductTypeEntityById(id);
-    ProductTypeView result = ProductTypeMapper.entityToModel(entity);
+    ProductTypeView result = ProductTypeMapper.toModel(entity);
 
     LOG.debug("end getProductTypeById, get ProductType:{}", result.toString());
     return result;
@@ -169,7 +171,7 @@ public class ProductTypeService {
     LOG.debug("enter getProductTypeByKey, key is : {}", key);
 
     ProductType entity = getProductTypeEntityByKey(key);
-    ProductTypeView result = ProductTypeMapper.entityToModel(entity);
+    ProductTypeView result = ProductTypeMapper.toModel(entity);
 
     LOG.debug("end getProductTypeByKey, get ProductType : {}", result.toString());
     return result;
@@ -186,7 +188,7 @@ public class ProductTypeService {
     LOG.debug("enter queryProductTypes, QueryConditions is : {}", queryConditions.toString());
 
     List<ProductType> entities = productTypeRepository.findAll();
-    List<ProductTypeView> productTypes = ProductTypeMapper.entityToModel(entities);
+    List<ProductTypeView> productTypes = ProductTypeMapper.toModel(entities);
 
     PagedQueryResult<ProductTypeView> result = new PagedQueryResult<>();
     result.setResults(productTypes);
@@ -250,7 +252,7 @@ public class ProductTypeService {
    * @return updated ProductType
    */
   private ProductTypeView updateProductTypeEntity(Integer version, List<UpdateAction> actions,
-                                              ProductType entity) {
+                                                  ProductType entity) {
     validateVersion(version, entity);
 
     actions.parallelStream().forEach(action -> {
@@ -258,6 +260,6 @@ public class ProductTypeService {
     });
 
     ProductType updatedEntity = productTypeRepository.save(entity);
-    return ProductTypeMapper.entityToModel(updatedEntity);
+    return ProductTypeMapper.toModel(updatedEntity);
   }
 }

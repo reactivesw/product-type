@@ -1,14 +1,25 @@
 package io.reactivesw.producttype.application.model.mapper;
 
-
 import io.reactivesw.producttype.application.model.EnumValue;
 import io.reactivesw.producttype.application.model.PlainEnumValue;
 
 /**
- * Created by Davis on 16/12/12.
+ * Enum Mapper Class.
  */
 public final class EnumValueMapper {
-  public static EnumValue modelToEntity(PlainEnumValue plainEnumValue) {
+
+  /**
+   * Instantiates a new Enum value mapper.
+   */
+  private EnumValueMapper() {}
+
+  /**
+   * convert PlainEnumValue to EnumValue.
+   *
+   * @param plainEnumValue the PlainEnumValue
+   * @return the EnumValue
+   */
+  public static EnumValue toEntity(PlainEnumValue plainEnumValue) {
     return new EnumValue(plainEnumValue.getKey(), plainEnumValue.getLabel());
   }
 }

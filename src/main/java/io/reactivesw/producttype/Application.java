@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication(scanBasePackages = "io.reactivesw")
 public class Application {
   /**
-   * The entry point of controller.
+   * The entry point build controller.
    *
    * @param args the input arguments
    */

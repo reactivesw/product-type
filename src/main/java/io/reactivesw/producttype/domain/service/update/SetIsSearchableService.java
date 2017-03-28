@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 /**
  * Created by Davis on 17/1/3.
  */
-@Service(value = ProductTypeActionUtils.SET_ATTRIBUTE_DEFINITION_IS_SEARCHABLE)
+@Service(value = ProductTypeActionUtils.SET_ATTRIBUTE_SEARCHABLE)
 public class SetIsSearchableService implements Updater<ProductType, UpdateAction> {
   /**
    * set isSearchable to attribute.

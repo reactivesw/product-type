@@ -13,8 +13,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Attribute {
-
+  /**
+   * attribute name.
+   */
   private String name;
 
+  /**
+   * attribute value.
+   */
   private JsonNode value;
 }

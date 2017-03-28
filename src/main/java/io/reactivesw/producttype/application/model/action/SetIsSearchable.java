@@ -28,8 +28,12 @@ public class SetIsSearchable implements UpdateAction {
   @NotNull
   private Boolean isSearchable;
 
+  /**
+   * get update service name.
+   * @return set_attribute_definition_is_searchable
+   */
   @Override
   public String getActionName() {
-    return ProductTypeActionUtils.SET_ATTRIBUTE_DEFINITION_IS_SEARCHABLE;
+    return ProductTypeActionUtils.SET_ATTRIBUTE_SEARCHABLE;
   }
 }

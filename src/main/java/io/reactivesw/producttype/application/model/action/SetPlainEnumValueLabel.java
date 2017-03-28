@@ -23,6 +23,10 @@ public class SetPlainEnumValueLabel implements UpdateAction {
    */
   private PlainEnumValue newValue;
 
+  /**
+   * get update service name.
+   * @return set_enum_value_label
+   */
   @Override
   public String getActionName() {
     return ProductTypeActionUtils.SET_ENUM_VALUE_LABEL;

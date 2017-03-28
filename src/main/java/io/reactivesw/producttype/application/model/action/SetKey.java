@@ -16,6 +16,10 @@ public class SetKey implements UpdateAction {
    */
   private String key;
 
+  /**
+   * get update service name.
+   * @return set_key
+   */
   @Override
   public String getActionName() {
     return ProductTypeActionUtils.SET_KEY;

@@ -7,6 +7,7 @@ import io.reactivesw.producttype.domain.model.LocalizedStringValue;
 import io.reactivesw.producttype.domain.model.ProductType;
 import io.reactivesw.producttype.infrastructure.update.ProductTypeActionUtils;
 import io.reactivesw.producttype.infrastructure.update.UpdateAction;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,9 +30,8 @@ public class SetAttributeLabelService implements Updater<ProductType, UpdateActi
   public void handle(ProductType entity, UpdateAction action) {
     SetAttributeLabel setAttributeLabel = (SetAttributeLabel) action;
     String attributeName = setAttributeLabel.getAttributeName();
-    Set<LocalizedStringValue> label = LocalizedStringMapper.modelToEntityDefaultNew
-        (setAttributeLabel
-            .getLabel());
+    Set<LocalizedStringValue> label = LocalizedStringMapper.toEntityDefaultNew(setAttributeLabel
+        .getLabel());
 
     List attributes = entity.getAttributes().stream().map(
         attribute -> {
@@ -39,8 +39,7 @@ public class SetAttributeLabelService implements Updater<ProductType, UpdateActi
             attribute.setLabel(label);
           }
           return attribute;
-        }
-    ).collect(Collectors.toList());
+        }).collect(Collectors.toList());
 
     entity.setAttributes(attributes);
   }

@@ -13,17 +13,23 @@ import java.util.Set;
 public final class LocalizedStringMapper {
 
   /**
+   * Instantiates a new Localized string mapper.
+   */
+  private LocalizedStringMapper() {
+  }
+
+  /**
    * Convert to localized string.
    * when localizedStringEntity is null return new LocalizedString.
    *
    * @param localizedStringEntities the localized string entity
    * @return the localized string
    */
-  public static LocalizedString entityToModelDefaultNew(Set<LocalizedStringValue>
-                                                            localizedStringEntities) {
+  public static LocalizedString toModelDefaultNew(Set<LocalizedStringValue>
+                                                      localizedStringEntities) {
     LocalizedString localizedString = new LocalizedString();
     if (localizedStringEntities != null) {
-      localizedString = entityToModel(localizedStringEntities);
+      localizedString = toModel(localizedStringEntities);
     }
     return localizedString;
   }
@@ -35,48 +41,47 @@ public final class LocalizedStringMapper {
    * @param localizedStringEntities the localized string entity
    * @return the localized string
    */
-  public static LocalizedString entityToModelDefaultNull(Set<LocalizedStringValue>
-                                                             localizedStringEntities) {
+  public static LocalizedString toModelDefaultNull(Set<LocalizedStringValue>
+                                                       localizedStringEntities) {
     LocalizedString localizedString = null;
     if (localizedStringEntities != null) {
-      localizedString = entityToModel(localizedStringEntities);
+      localizedString = toModel(localizedStringEntities);
     }
     return localizedString;
   }
 
 
   /**
-   * Convert to Set of LocalizedStringEntity from LocalizedString.
+   * Convert to Set build LocalizedStringEntity from LocalizedString.
    *
    * @param localizedString the LocalizedString
-   * @return Set of LocalizedStringEntity
+   * @return Set build LocalizedStringEntity
    */
-  public static Set<LocalizedStringValue> modelToEntityDefaultNew(LocalizedString
-                                                                      localizedString) {
+  public static Set<LocalizedStringValue> toEntityDefaultNew(LocalizedString
+                                                                 localizedString) {
     Set<LocalizedStringValue> localizedStringEntities = new HashSet<>();
 
     if (localizedString != null && !localizedString.getLocalized().isEmpty()) {
-      Set<Map.Entry<String, String>> localizedStrings = localizedString.getLocalized().entrySet();
-      for (Map.Entry localizedValue : localizedStrings) {
-        localizedStringEntities.add(new LocalizedStringValue(localizedValue.getKey().toString(),
-            localizedValue.getValue().toString()));
-      }
+      localizedStringEntities = toEntity(localizedString, localizedStringEntities);
     }
 
     return localizedStringEntities;
   }
 
-  public static Set<LocalizedStringValue> modelToEntityDefaultNull(LocalizedString
-                                                                       localizedString) {
+
+  /**
+   * Model to entity default null set.
+   *
+   * @param localizedString the localized string
+   * @return the set
+   */
+  public static Set<LocalizedStringValue> toEntityDefaultNull(LocalizedString
+                                                                  localizedString) {
     Set<LocalizedStringValue> localizedStringEntities = null;
 
     if (localizedString != null && !localizedString.getLocalized().isEmpty()) {
       localizedStringEntities = new HashSet<>();
-      Set<Map.Entry<String, String>> localizeStrings = localizedString.getLocalized().entrySet();
-      for (Map.Entry localizedValue : localizeStrings) {
-        localizedStringEntities.add(new LocalizedStringValue(localizedValue.getKey().toString(),
-            localizedValue.getValue().toString()));
-      }
+      toEntity(localizedString, localizedStringEntities);
     }
 
     return localizedStringEntities;
@@ -88,14 +93,43 @@ public final class LocalizedStringMapper {
    * @param localizedStringEntities localizedStringEntities
    * @return LocalizedString
    */
-  private static LocalizedString entityToModel(Set<LocalizedStringValue>
-                                                   localizedStringEntities) {
+  private static LocalizedString toModel(Set<LocalizedStringValue>
+                                             localizedStringEntities) {
     LocalizedString localizedString = new LocalizedString();
     for (LocalizedStringValue localizedStringEntity : localizedStringEntities) {
       localizedString.addKeyValue(localizedStringEntity.getLanguage(), localizedStringEntity
           .getText());
     }
     return localizedString;
+  }
+
+  /**
+   * build LocalizedStringValue from Map.Entry.
+   *
+   * @param localizedValue Map.Entry
+   * @return LocalizedStringValue
+   */
+  private static LocalizedStringValue build(Map.Entry<String, String> localizedValue) {
+    return LocalizedStringValue.build(localizedValue.getKey().toString(),
+        localizedValue.getValue().toString());
+  }
+
+  /**
+   * convert LocalizedString  to Set build LocalizedStringValue.
+   *
+   * @param localizedString         LocalizedString
+   * @param localizedStringEntities Set build LocalizedStringValue
+   * @return Set build LocalizedStringValue
+   */
+  private static Set<LocalizedStringValue> toEntity(LocalizedString localizedString,
+                                                    Set<LocalizedStringValue>
+                                                        localizedStringEntities) {
+    Set<Map.Entry<String, String>> localizedStrings = localizedString.getLocalized().entrySet();
+    for (Map.Entry localizedValue : localizedStrings) {
+      localizedStringEntities.add(build(localizedValue));
+    }
+
+    return localizedStringEntities;
   }
 
 }

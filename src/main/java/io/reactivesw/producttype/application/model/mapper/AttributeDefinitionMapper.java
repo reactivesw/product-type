@@ -1,9 +1,9 @@
 package io.reactivesw.producttype.application.model.mapper;
 
 import com.google.common.collect.Lists;
+
 import io.reactivesw.producttype.application.model.AttributeDefinitionDraft;
 import io.reactivesw.producttype.application.model.attributes.AttributeDefinitionView;
-import io.reactivesw.producttype.application.model.attributes.AttributeType;
 import io.reactivesw.producttype.domain.model.AttributeDefinition;
 
 import java.util.List;
@@ -15,17 +15,23 @@ import java.util.stream.Collectors;
 public final class AttributeDefinitionMapper {
 
   /**
+   * private constructor.
+   */
+  private AttributeDefinitionMapper() {
+  }
+
+  /**
    * Model to entity set.
    *
    * @param attributeDefinitionList the attribute definition list
    * @return the set
    */
-  public static List<AttributeDefinition> modelToEntity(List<AttributeDefinitionDraft>
-                                                            attributeDefinitionList) {
+  public static List<AttributeDefinition> toEntity(List<AttributeDefinitionDraft>
+                                                       attributeDefinitionList) {
     List<AttributeDefinition> entities = Lists.newArrayList();
     if (attributeDefinitionList != null) {
       entities = attributeDefinitionList.stream().map(
-          attributeDefinitionDraft -> modelToEntity(attributeDefinitionDraft)
+          attributeDefinitionDraft -> toEntity(attributeDefinitionDraft)
       ).collect(Collectors.toList());
     }
     return entities;
@@ -37,7 +43,7 @@ public final class AttributeDefinitionMapper {
    * @param draft the draft
    * @return the AttributeDefinitionView
    */
-  public static AttributeDefinition modelToEntity(AttributeDefinitionDraft draft) {
+  public static AttributeDefinition toEntity(AttributeDefinitionDraft draft) {
     AttributeDefinition entity = new AttributeDefinition();
     entity.setName(draft.getName());
     entity.setInputHint(draft.getInputHint());
@@ -45,19 +51,8 @@ public final class AttributeDefinitionMapper {
     entity.setSearchable(draft.getIsSearchable());
     entity.setType(draft.getType());
     entity.setAttributeConstraint(draft.getAttributeConstraint());
-    entity.setLabel(LocalizedStringMapper.modelToEntityDefaultNew(draft.getLabel()));
-    entity.setInputTip(LocalizedStringMapper.modelToEntityDefaultNew(draft.getInputTip()));
-    return entity;
-  }
-
-  /**
-   * convert Model to AttributeDefinitionView.
-   *
-   * @param attributeType the attribute type
-   * @return the attribute definition entity
-   */
-  public static AttributeDefinition modelToEntity(AttributeType attributeType) {
-    AttributeDefinition entity = new AttributeDefinition();
+    entity.setLabel(LocalizedStringMapper.toEntityDefaultNew(draft.getLabel()));
+    entity.setInputTip(LocalizedStringMapper.toEntityDefaultNew(draft.getInputTip()));
     return entity;
   }
 
@@ -67,9 +62,9 @@ public final class AttributeDefinitionMapper {
    * @param entities the entity
    * @return the list
    */
-  public static List<AttributeDefinitionView> entityToModel(List<AttributeDefinition> entities) {
+  public static List<AttributeDefinitionView> toModel(List<AttributeDefinition> entities) {
     List<AttributeDefinitionView> models = entities.stream().map(
-        entity -> entityToModel(entity)
+        entity -> toModel(entity)
     ).collect(Collectors.toList());
     return models;
   }
@@ -80,12 +75,12 @@ public final class AttributeDefinitionMapper {
    * @param entity the entity
    * @return the attribute definition
    */
-  public static AttributeDefinitionView entityToModel(AttributeDefinition entity) {
+  public static AttributeDefinitionView toModel(AttributeDefinition entity) {
     AttributeDefinitionView model = new AttributeDefinitionView();
     model.setName(entity.getName());
     model.setInputHint(entity.getInputHint());
-    model.setInputTip(LocalizedStringMapper.entityToModelDefaultNull(entity.getInputTip()));
-    model.setLabel(LocalizedStringMapper.entityToModelDefaultNull(entity.getLabel()));
+    model.setInputTip(LocalizedStringMapper.toModelDefaultNull(entity.getInputTip()));
+    model.setLabel(LocalizedStringMapper.toModelDefaultNull(entity.getLabel()));
     model.setIsRequired(entity.getRequired());
     model.setIsSearchable(entity.getSearchable());
     model.setType(entity.getType());

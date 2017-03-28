@@ -17,6 +17,10 @@ public class SetDescription implements UpdateAction {
    */
   private String description;
 
+  /**
+   * get update service name.
+   * @return set_description
+   */
   @Override
   public String getActionName() {
     return ProductTypeActionUtils.SET_DESCRIPTION;

@@ -3,6 +3,7 @@ package io.reactivesw.producttype.application.model.action;
 import io.reactivesw.producttype.application.model.attributes.AttributeDefinitionView;
 import io.reactivesw.producttype.infrastructure.update.ProductTypeActionUtils;
 import io.reactivesw.producttype.infrastructure.update.UpdateAction;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,6 +25,10 @@ public class SetAttributeOrder implements UpdateAction {
   @Size(min = 1)
   private List<AttributeDefinitionView> attributes;
 
+  /**
+   * get update service name.
+   * @return set_attribute_order
+   */
   @Override
   public String getActionName() {
     return ProductTypeActionUtils.SET_ATTRIBUTE_ORDER;

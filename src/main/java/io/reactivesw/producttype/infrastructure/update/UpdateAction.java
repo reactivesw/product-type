@@ -2,6 +2,7 @@ package io.reactivesw.producttype.infrastructure.update;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import io.reactivesw.producttype.application.model.action.AddAttributeDefinition;
 import io.reactivesw.producttype.application.model.action.AddLocalizedEnumValue;
 import io.reactivesw.producttype.application.model.action.AddPlainEnumValue;
@@ -23,8 +24,7 @@ import io.reactivesw.producttype.application.model.action.SetPlainEnumValueOrder
  * and this action also extends other action configure in each service.
  * Created by umasuo on 16/11/21.
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property =
-    "action")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "action")
 @JsonSubTypes( {
     @JsonSubTypes.Type(value = SetKey.class, name = "setKey"),
     @JsonSubTypes.Type(value = SetName.class, name = "setName"),
@@ -42,8 +42,12 @@ import io.reactivesw.producttype.application.model.action.SetPlainEnumValueOrder
     @JsonSubTypes.Type(value = SetPlainEnumValueLabel.class, name = "setPlainEnumValueLabel"),
     @JsonSubTypes.Type(value = SetLocalizedEnumValueLabel.class,
         name = "setLocalizedEnumValueLabel"),
-    @JsonSubTypes.Type(value = SetIsSearchable.class, name = "setIsSearchable")
-})
+    @JsonSubTypes.Type(value = SetIsSearchable.class, name = "setIsSearchable")})
 public interface UpdateAction {
+  /**
+   * get action name.
+   *
+   * @return String
+   */
   String getActionName();
 }

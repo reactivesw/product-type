@@ -3,10 +3,11 @@ package io.reactivesw.producttype.domain.service.update;
 import io.reactivesw.model.Updater;
 import io.reactivesw.producttype.application.model.LocalizedEnumValue;
 import io.reactivesw.producttype.application.model.action.AddLocalizedEnumValue;
-import io.reactivesw.producttype.application.model.attributes.LocalizedEnumAttributeType;
+import io.reactivesw.producttype.application.model.attributes.LocalizedEnumAbstractAttributeType;
 import io.reactivesw.producttype.domain.model.ProductType;
 import io.reactivesw.producttype.infrastructure.update.ProductTypeActionUtils;
 import io.reactivesw.producttype.infrastructure.update.UpdateAction;
+
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
@@ -31,8 +32,8 @@ public class AddLocalizedEnumValueService implements Updater<ProductType, Update
     entity.getAttributes().stream()
         .forEach(attribute -> {
           if (Objects.equals(attributeName, attribute.getName())) {
-            LocalizedEnumAttributeType lenumAttribute = (LocalizedEnumAttributeType) attribute
-                .getType();
+            LocalizedEnumAbstractAttributeType lenumAttribute =
+                (LocalizedEnumAbstractAttributeType) attribute.getType();
             lenumAttribute.getValues().add(value);
             attribute.setType(lenumAttribute);
           }

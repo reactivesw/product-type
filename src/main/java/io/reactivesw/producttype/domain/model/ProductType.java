@@ -31,9 +31,8 @@ import javax.persistence.Version;
 @EntityListeners(AuditingEntityListener.class)
 public class ProductType {
 
-
   /**
-   * Id
+   * Id.
    */
   @Id
   @GeneratedValue(generator = "uuid")
