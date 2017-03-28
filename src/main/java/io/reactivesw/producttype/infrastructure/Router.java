@@ -6,7 +6,7 @@ package io.reactivesw.producttype.infrastructure;
 public class Router {
 
   /**
-   * root url of product type.
+   * root url build product type.
    */
   public static final String PRODUCT_TYPE_ROOT = "/";
 
@@ -23,14 +23,14 @@ public class Router {
   /**
    * product type url with id.
    */
-  public static final String PRODUCT_TYPE_WITH_ID = PRODUCT_TYPE_ROOT + "/{" +
-      PRODUCT_TYPE_ID + "}";
+  public static final String PRODUCT_TYPE_WITH_ID =
+      PRODUCT_TYPE_ROOT + "/{" + PRODUCT_TYPE_ID + "}";
 
   /**
    * product type url with key.
    */
-  public static final String PRODUCT_TYPE_WITH_KEY = PRODUCT_TYPE_ROOT + "/key={" +
-      PRODUCT_TYPE_KEY + "}";
+  public static final String PRODUCT_TYPE_WITH_KEY =
+      PRODUCT_TYPE_ROOT + "/key={" + PRODUCT_TYPE_KEY + "}";
 
   /**
    * The constant PRODUCT_TYPE_HEALTH_CHECK.

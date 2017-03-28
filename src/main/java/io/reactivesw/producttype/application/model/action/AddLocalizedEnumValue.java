@@ -3,6 +3,7 @@ package io.reactivesw.producttype.application.model.action;
 import io.reactivesw.producttype.application.model.LocalizedEnumValue;
 import io.reactivesw.producttype.infrastructure.update.ProductTypeActionUtils;
 import io.reactivesw.producttype.infrastructure.update.UpdateAction;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,6 +29,11 @@ public class AddLocalizedEnumValue implements UpdateAction {
   @NotNull
   private LocalizedEnumValue value;
 
+  /**
+   * get update service name.
+   *
+   * @return add_localized_enum_value
+   */
   @Override
   public String getActionName() {
     return ProductTypeActionUtils.ADD_LOCALIZED_ENUM_VALUE;

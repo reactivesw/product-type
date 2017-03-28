@@ -32,6 +32,10 @@ public class SetPlainEnumValueOrder implements UpdateAction {
   @Size(min = 1)
   private List<PlainEnumValue> values;
 
+  /**
+   * get update service name.
+   * @return set_enum_value_order
+   */
   @Override
   public String getActionName() {
     return ProductTypeActionUtils.SET_ENUM_VALUE_ORDER;

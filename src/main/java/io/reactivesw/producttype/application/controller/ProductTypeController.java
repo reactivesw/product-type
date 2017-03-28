@@ -35,11 +35,6 @@ public class ProductTypeController {
   private static final Logger LOG = LoggerFactory.getLogger(ProductTypeController.class);
 
   /**
-   * PRODUCT_TYPE_ID_STRING.
-   */
-  private static final String PRODUCT_TYPE_ID_STRING = "ProductType ID";
-
-  /**
    * The Product type service.
    */
   @Autowired
@@ -185,8 +180,8 @@ public class ProductTypeController {
   public PagedQueryResult<ProductTypeView> queryProductTypes(QueryConditions queryConditions) {
     LOG.debug("enter queryProductTypes, QueryConditions is : {}", queryConditions.toString());
 
-    PagedQueryResult<ProductTypeView> result = productTypeService.queryProductTypes
-        (queryConditions);
+    PagedQueryResult<ProductTypeView> result = productTypeService.queryProductTypes(
+                                                                              queryConditions);
 
     LOG.debug("end queryProductTypes, productType number is : {}", result.getResults().size());
 

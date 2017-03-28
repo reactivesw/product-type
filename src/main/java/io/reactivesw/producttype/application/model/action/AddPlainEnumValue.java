@@ -28,6 +28,10 @@ public class AddPlainEnumValue implements UpdateAction {
   @NotNull
   private PlainEnumValue value;
 
+  /**
+   * get update service name.
+   * @return add_plain_enum_value
+   */
   @Override
   public String getActionName() {
     return ProductTypeActionUtils.ADD_PLAIN_ENUM_VALUE;

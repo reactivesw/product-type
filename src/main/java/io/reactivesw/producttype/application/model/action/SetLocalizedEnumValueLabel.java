@@ -29,6 +29,10 @@ public class SetLocalizedEnumValueLabel implements UpdateAction {
   @NotNull
   private LocalizedEnumValue newValue;
 
+  /**
+   * get update service name.
+   * @return set_localized_enum_value_label
+   */
   @Override
   public String getActionName() {
     return ProductTypeActionUtils.SET_LOCALIZED_ENUM_VALUE_LABEL;

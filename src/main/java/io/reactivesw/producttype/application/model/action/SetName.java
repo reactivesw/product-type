@@ -21,7 +21,10 @@ public class SetName implements UpdateAction {
   @Size(min = 1)
   private String name;
 
-
+  /**
+   * get update service name.
+   * @return set_name
+   */
   @Override
   public String getActionName() {
     return ProductTypeActionUtils.SET_NAME;

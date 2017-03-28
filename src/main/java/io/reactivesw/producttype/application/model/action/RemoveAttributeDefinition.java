@@ -2,6 +2,7 @@ package io.reactivesw.producttype.application.model.action;
 
 import io.reactivesw.producttype.infrastructure.update.ProductTypeActionUtils;
 import io.reactivesw.producttype.infrastructure.update.UpdateAction;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,6 +22,11 @@ public class RemoveAttributeDefinition implements UpdateAction {
   @Size(min = 1)
   private String name;
 
+  /**
+   * get update service name.
+   *
+   * @return remove_attribute_definition
+   */
   @Override
   public String getActionName() {
     return ProductTypeActionUtils.REMOVE_ATTRIBUTE_DEFINITION;

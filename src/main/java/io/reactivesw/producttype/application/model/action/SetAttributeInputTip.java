@@ -27,6 +27,10 @@ public class SetAttributeInputTip implements UpdateAction {
    */
   private LocalizedString inputTip;
 
+  /**
+   * get update service name.
+   * @return set_attribute_definition_inputtip
+   */
   @Override
   public String getActionName() {
     return ProductTypeActionUtils.SET_ATTRIBUTE_DEFINITION_INPUTTIP;

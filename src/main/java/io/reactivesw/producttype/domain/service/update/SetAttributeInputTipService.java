@@ -30,7 +30,7 @@ public class SetAttributeInputTipService implements Updater<ProductType, UpdateA
   public void handle(ProductType entity, UpdateAction action) {
     SetAttributeInputTip setAttributeInputTip = (SetAttributeInputTip) action;
     String attributeName = setAttributeInputTip.getAttributeName();
-    Set<LocalizedStringValue> inputTip = LocalizedStringMapper.modelToEntityDefaultNew(
+    Set<LocalizedStringValue> inputTip = LocalizedStringMapper.toEntityDefaultNew(
         setAttributeInputTip.getInputTip());
 
     List<AttributeDefinition> attributes = entity.getAttributes().stream()
