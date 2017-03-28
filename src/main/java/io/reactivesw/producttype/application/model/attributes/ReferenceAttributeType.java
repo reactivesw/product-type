@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class ReferenceAbstractAttributeType extends AbstractAttributeType {
+public class ReferenceAttributeType extends AbstractAttributeType {
   /**
    * reference type id.
    */

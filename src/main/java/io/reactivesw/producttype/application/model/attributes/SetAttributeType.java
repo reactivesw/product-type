@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * The type Set attribute type.
  */
-public final class SetAbstractAttributeType extends AbstractAttributeType {
+public final class SetAttributeType extends AbstractAttributeType {
   /**
    * attribute type.
    */
@@ -15,10 +15,10 @@ public final class SetAbstractAttributeType extends AbstractAttributeType {
   /**
    * build from json data.
    *
-   * @param elementType SetAbstractAttributeType
+   * @param elementType SetAttributeType
    */
   @JsonCreator
-  private SetAbstractAttributeType(final AttributeType elementType) {
+  private SetAttributeType(final AttributeType elementType) {
     super();
     this.elementType = elementType;
   }
@@ -39,7 +39,7 @@ public final class SetAbstractAttributeType extends AbstractAttributeType {
    * @return the set attribute type
    */
   @JsonIgnore
-  public static SetAbstractAttributeType build(final AttributeType elementType) {
-    return new SetAbstractAttributeType(elementType);
+  public static SetAttributeType build(final AttributeType elementType) {
+    return new SetAttributeType(elementType);
   }
 }

@@ -2,7 +2,7 @@ package io.reactivesw.producttype.domain.service.update;
 
 import io.reactivesw.model.Updater;
 import io.reactivesw.producttype.application.model.action.SetPlainEnumValueLabel;
-import io.reactivesw.producttype.application.model.attributes.EnumAbstractAttributeType;
+import io.reactivesw.producttype.application.model.attributes.EnumAttributeType;
 import io.reactivesw.producttype.domain.model.ProductType;
 import io.reactivesw.producttype.infrastructure.update.ProductTypeActionUtils;
 import io.reactivesw.producttype.infrastructure.update.UpdateAction;
@@ -29,8 +29,8 @@ public class SetPlainEnumValueLabelService implements Updater<ProductType, Updat
     entity.getAttributes().forEach(
         attribute -> {
           if (attribute.getName().equals(setPlainEnumValueLabel.getAttributeName())
-              && attribute.getType() instanceof EnumAbstractAttributeType) {
-            ((EnumAbstractAttributeType) attribute.getType()).getValues().forEach(
+              && attribute.getType() instanceof EnumAttributeType) {
+            ((EnumAttributeType) attribute.getType()).getValues().forEach(
                 type -> {
                   if (type.getKey().equals(setPlainEnumValueLabel.getNewValue().getKey())) {
                     type.setLabel(setPlainEnumValueLabel.getNewValue().getLabel());
