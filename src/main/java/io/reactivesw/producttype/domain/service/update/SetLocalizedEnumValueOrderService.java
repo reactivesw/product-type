@@ -4,7 +4,7 @@ import io.reactivesw.exception.NotExistException;
 import io.reactivesw.exception.ParametersException;
 import io.reactivesw.model.Updater;
 import io.reactivesw.producttype.application.model.action.SetLocalizedEnumValueOrder;
-import io.reactivesw.producttype.application.model.attributes.LocalizedEnumAbstractAttributeType;
+import io.reactivesw.producttype.application.model.attributes.LocalizedEnumAttributeType;
 import io.reactivesw.producttype.domain.model.AttributeDefinition;
 import io.reactivesw.producttype.domain.model.ProductType;
 import io.reactivesw.producttype.infrastructure.update.ProductTypeActionUtils;
@@ -37,7 +37,7 @@ public class SetLocalizedEnumValueOrderService implements Updater<ProductType, U
 
     String localizedEnumAttributeName = setLocalizedEnumValueOrder.getAttributeName();
 
-    LocalizedEnumAbstractAttributeType enumType =
+    LocalizedEnumAttributeType enumType =
         getLocalizedEnumAttributeType(entity, localizedEnumAttributeName);
     List<String> enumValueKeys = getLocalizedEnumAttributeKeys(enumType);
 
@@ -60,7 +60,7 @@ public class SetLocalizedEnumValueOrderService implements Updater<ProductType, U
    * @param orderdKeys                 the orderd keys
    */
   private void setEnumValueOrder(ProductType entity, String localizedEnumAttributeName,
-                                 LocalizedEnumAbstractAttributeType enumType, List<String>
+                                 LocalizedEnumAttributeType enumType, List<String>
                                      orderdKeys) {
     enumType.setValues(enumType.getValues().parallelStream().sorted(
         (v1, v2) -> Integer.compare(orderdKeys.indexOf(v1.getKey()),
@@ -98,7 +98,7 @@ public class SetLocalizedEnumValueOrderService implements Updater<ProductType, U
    * @return the enum attribute keys
    */
   private List<String> getLocalizedEnumAttributeKeys(
-      LocalizedEnumAbstractAttributeType localizedEnumAttributeType) {
+      LocalizedEnumAttributeType localizedEnumAttributeType) {
     return localizedEnumAttributeType.getValues().parallelStream().map(
         value -> {
           return value.getKey();
@@ -114,17 +114,17 @@ public class SetLocalizedEnumValueOrderService implements Updater<ProductType, U
    * @param localizedEnumAttributeName the set plain enum value order
    * @return the enum attribute type
    */
-  private LocalizedEnumAbstractAttributeType getLocalizedEnumAttributeType(ProductType entity,
-                                                        String localizedEnumAttributeName) {
+  private LocalizedEnumAttributeType getLocalizedEnumAttributeType(ProductType entity,
+                                                                   String localizedEnumAttributeName) {
     List<AttributeDefinition> attributes = entity.getAttributes();
     Optional<AttributeDefinition> enumAttribute = attributes.parallelStream().filter(
         attribute -> attribute.getName().equals(localizedEnumAttributeName)
-            && attribute.getType() instanceof LocalizedEnumAbstractAttributeType
+            && attribute.getType() instanceof LocalizedEnumAttributeType
     ).findAny();
 
     if (!enumAttribute.isPresent()) {
       throw new NotExistException("can not find enum attribute type named");
     }
-    return (LocalizedEnumAbstractAttributeType) enumAttribute.get().getType();
+    return (LocalizedEnumAttributeType) enumAttribute.get().getType();
   }
 }

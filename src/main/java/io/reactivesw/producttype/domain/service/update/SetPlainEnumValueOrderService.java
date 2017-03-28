@@ -4,7 +4,7 @@ import io.reactivesw.exception.NotExistException;
 import io.reactivesw.exception.ParametersException;
 import io.reactivesw.model.Updater;
 import io.reactivesw.producttype.application.model.action.SetPlainEnumValueOrder;
-import io.reactivesw.producttype.application.model.attributes.EnumAbstractAttributeType;
+import io.reactivesw.producttype.application.model.attributes.EnumAttributeType;
 import io.reactivesw.producttype.domain.model.AttributeDefinition;
 import io.reactivesw.producttype.domain.model.ProductType;
 import io.reactivesw.producttype.infrastructure.update.ProductTypeActionUtils;
@@ -36,7 +36,7 @@ public class SetPlainEnumValueOrderService implements Updater<ProductType, Updat
 
     String enumAttributeName = setPlainEnumValueOrder.getAttributeName();
 
-    EnumAbstractAttributeType enumType = getEnumAttributeType(entity, enumAttributeName);
+    EnumAttributeType enumType = getEnumAttributeType(entity, enumAttributeName);
     List<String> enumValueKeys = getEnumAttributeKeys(enumType);
 
     List<String> orderKeys = getOrderKeys(setPlainEnumValueOrder);
@@ -58,7 +58,7 @@ public class SetPlainEnumValueOrderService implements Updater<ProductType, Updat
    * @param orderdKeys        the orderd keys
    */
   private void setEnumValueOrder(ProductType entity, String
-      enumAttributeName, EnumAbstractAttributeType enumType, List<String> orderdKeys) {
+      enumAttributeName, EnumAttributeType enumType, List<String> orderdKeys) {
     enumType.setValues(enumType.getValues().parallelStream().sorted(
         (v1, v2) -> Integer.compare(orderdKeys.indexOf(v1.getKey()),
             orderdKeys.indexOf(v2.getKey()))
@@ -94,7 +94,7 @@ public class SetPlainEnumValueOrderService implements Updater<ProductType, Updat
    * @param enumType the enum type
    * @return the enum attribute keys
    */
-  private List<String> getEnumAttributeKeys(EnumAbstractAttributeType enumType) {
+  private List<String> getEnumAttributeKeys(EnumAttributeType enumType) {
     return enumType.getValues().parallelStream().map(
         value -> {
           return value.getKey();
@@ -109,17 +109,17 @@ public class SetPlainEnumValueOrderService implements Updater<ProductType, Updat
    * @param enumAttributeName the set plain enum value order
    * @return the enum attribute type
    */
-  private EnumAbstractAttributeType getEnumAttributeType(ProductType entity,
-                                                         String enumAttributeName) {
+  private EnumAttributeType getEnumAttributeType(ProductType entity,
+                                                 String enumAttributeName) {
     List<AttributeDefinition> attributes = entity.getAttributes();
     Optional<AttributeDefinition> enumAttribute = attributes.parallelStream().filter(
         attribute -> attribute.getName().equals(enumAttributeName)
-            && attribute.getType() instanceof EnumAbstractAttributeType
+            && attribute.getType() instanceof EnumAttributeType
     ).findAny();
 
     if (!enumAttribute.isPresent()) {
       throw new NotExistException("can not find enum attribute type named : " + enumAttributeName);
     }
-    return (EnumAbstractAttributeType) enumAttribute.get().getType();
+    return (EnumAttributeType) enumAttribute.get().getType();
   }
 }

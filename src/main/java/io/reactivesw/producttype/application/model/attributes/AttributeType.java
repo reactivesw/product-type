@@ -9,19 +9,19 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "name")
 @JsonSubTypes( {
-    @JsonSubTypes.Type(value = BooleanAbstractAttributeType.class, name = "boolean"),
-    @JsonSubTypes.Type(value = StringAbstractAttributeType.class, name = "text"),
-    @JsonSubTypes.Type(value = LocalizedStringAbstractAttributeType.class, name = "ltext"),
-    @JsonSubTypes.Type(value = EnumAbstractAttributeType.class, name = "enum"),
-    @JsonSubTypes.Type(value = LocalizedEnumAbstractAttributeType.class, name = "lenum"),
-    @JsonSubTypes.Type(value = NumberAbstractAttributeType.class, name = "number"),
-    @JsonSubTypes.Type(value = MoneyAbstractAttributeType.class, name = "money"),
-    @JsonSubTypes.Type(value = DateAbstractAttributeType.class, name = "date"),
-    @JsonSubTypes.Type(value = TimeAbstractAttributeType.class, name = "time"),
-    @JsonSubTypes.Type(value = DateTimeAbstractAttributeType.class, name = "datetime"),
-    @JsonSubTypes.Type(value = ReferenceAbstractAttributeType.class, name = "reference"),
-    @JsonSubTypes.Type(value = SetAbstractAttributeType.class, name = "set"),
-    @JsonSubTypes.Type(value = NestedAbstractAttributeType.class, name = "nested")})
+    @JsonSubTypes.Type(value = BooleanAttributeType.class, name = "boolean"),
+    @JsonSubTypes.Type(value = StringAttributeType.class, name = "text"),
+    @JsonSubTypes.Type(value = LocalizedStringAttributeType.class, name = "ltext"),
+    @JsonSubTypes.Type(value = EnumAttributeType.class, name = "enum"),
+    @JsonSubTypes.Type(value = LocalizedEnumAttributeType.class, name = "lenum"),
+    @JsonSubTypes.Type(value = NumberAttributeType.class, name = "number"),
+    @JsonSubTypes.Type(value = MoneyAttributeType.class, name = "money"),
+    @JsonSubTypes.Type(value = DateAttributeType.class, name = "date"),
+    @JsonSubTypes.Type(value = TimeAttributeType.class, name = "time"),
+    @JsonSubTypes.Type(value = DateTimeAttributeType.class, name = "datetime"),
+    @JsonSubTypes.Type(value = ReferenceAttributeType.class, name = "reference"),
+    @JsonSubTypes.Type(value = SetAttributeType.class, name = "set"),
+    @JsonSubTypes.Type(value = NestedAttributeType.class, name = "nested")})
 public interface AttributeType {
 
 }

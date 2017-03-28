@@ -3,7 +3,7 @@ package io.reactivesw.producttype.domain.service.update;
 import io.reactivesw.model.Updater;
 import io.reactivesw.producttype.application.model.EnumValue;
 import io.reactivesw.producttype.application.model.action.AddPlainEnumValue;
-import io.reactivesw.producttype.application.model.attributes.EnumAbstractAttributeType;
+import io.reactivesw.producttype.application.model.attributes.EnumAttributeType;
 import io.reactivesw.producttype.application.model.mapper.EnumValueMapper;
 import io.reactivesw.producttype.domain.model.ProductType;
 import io.reactivesw.producttype.infrastructure.update.ProductTypeActionUtils;
@@ -35,7 +35,7 @@ public class AddPlainEnumValueService implements Updater<ProductType, UpdateActi
         .forEach(
             attribute -> {
               if (Objects.equals(attributeName, attribute.getName())) {
-                EnumAbstractAttributeType enumAttributeType = (EnumAbstractAttributeType) attribute
+                EnumAttributeType enumAttributeType = (EnumAttributeType) attribute
                     .getType();
                 // TODO: 16/12/12 if values is null?
                 enumAttributeType.getValues().add(enumValue);

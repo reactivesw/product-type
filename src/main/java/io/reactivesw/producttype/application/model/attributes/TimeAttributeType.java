@@ -5,21 +5,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * The Time attribute type.
  */
-public final class TimeAbstractAttributeType extends AbstractAttributeType {
+public final class TimeAttributeType extends AbstractAttributeType {
   /**
    * private constructor.
    */
-  private TimeAbstractAttributeType() {
+  private TimeAttributeType() {
     super();
   }
 
   /**
    * build a new object.
    *
-   * @return TimeAbstractAttributeType
+   * @return TimeAttributeType
    */
   @JsonIgnore
-  public static TimeAbstractAttributeType build() {
-    return new TimeAbstractAttributeType();
+  public static TimeAttributeType build() {
+    return new TimeAttributeType();
   }
 }

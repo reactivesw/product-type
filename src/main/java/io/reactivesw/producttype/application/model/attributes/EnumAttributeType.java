@@ -11,7 +11,7 @@ import java.util.List;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public final class EnumAbstractAttributeType extends AbstractAttributeType {
+public final class EnumAttributeType extends AbstractAttributeType {
   /**
    * enum value list.
    */
