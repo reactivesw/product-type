@@ -4,6 +4,7 @@ items:
 - kind: Deployment
   apiVersion: extensions/v1beta1
   metadata:
+    namespace: dev
     name: product-type
   spec:
     replicas: 1
@@ -44,6 +45,7 @@ items:
   apiVersion: v1
   metadata:
     name: product-type
+    namespace: dev
     labels:
       name: product-type
   spec:
@@ -51,6 +53,6 @@ items:
     ports:
     - port: 80
       targetPort: 80
-      nodePort: 30010
+      nodePort: 30110
     selector:
       name: product-type
