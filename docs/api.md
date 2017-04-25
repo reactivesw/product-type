@@ -11,7 +11,6 @@ TODO
 | field name | field type | comments |
 |-----|------|-----|
 | name | String | required |
-| key | String | should less than 256 characters |
 | description | String | required |
 | attributes | List\<AttributeDefinitionDraft\> | |
 
@@ -203,19 +202,6 @@ TODO
 
 * response : void
 
-### delete product type by key
-
-* URL : {service url}/{productTypeKey}
-* method : DELETE
-* request body :
-
-| name | type | comments |
-|-|-|-|
-| version | Integer | required |
-
-* response : void
-
-
 ### update product type by id
 
 * URL : {service url}/{productTypeId}
@@ -228,28 +214,9 @@ TODO
 
 * response : ProductTypeView
 
-
-### update product type by key
-
-* URL : {service url}/{productTypeKey}
-* method : PUT
-* request body :
-
-| name | type | comments |
-|-|-|-|
-| updateRequest | UpdateRequest | required |
-
-* response : ProductTypeView
-
 ### get product type by id
 
 * URL : {service url}/{productTypeId}
-* method : GET
-* response : ProductTypeView
-
-### get product type by key
-
-* URL : {service url}/{productTypeKey}
 * method : GET
 * response : ProductTypeView
 
