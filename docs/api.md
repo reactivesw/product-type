@@ -224,7 +224,7 @@ TODO
 
 | name | type | comments |
 |-|-|-|
-| updateRequest | updateRequest | required |
+| updateRequest | UpdateRequest | required |
 
 * response : ProductTypeView
 
@@ -237,7 +237,7 @@ TODO
 
 | name | type | comments |
 |-|-|-|
-| updateRequest | updateRequest | required |
+| updateRequest | UpdateRequest | required |
 
 * response : ProductTypeView
 
