@@ -1,12 +1,12 @@
 # Product-Type Rest API
 
-## Introduction
+## 1. Introduction
 
 TODO
 
-## View Model
+## 2. View Model
 
-### ProductTypeDraft
+### 2.1. ProductTypeDraft
 
 | field name | field type | comments |
 |-----|------|-----|
@@ -14,7 +14,7 @@ TODO
 | description | String | required |
 | attributes | List\<AttributeDefinitionDraft\> | |
 
-### AttributeDefinitionDraft
+### 2.2. AttributeDefinitionDraft
 
 | field name | field type | comments |
 |-----|------|-----|
@@ -27,7 +27,7 @@ TODO
 | isSearchable | Boolean | required |
 | inputTip | LocalizedString | |
 
-### ProductTypeView
+### 2.3. ProductTypeView
 
 | field name | field type | comments |
 |-----|------|-----|
@@ -40,133 +40,133 @@ TODO
 | description | String | |
 | attributes | List\<AttributeDefinitionView\> | |
 
-### AttributeDefinitionView
+### 2.4. AttributeDefinitionView
 | field name | field type | comments |
 |-----|------|-----|
 | type | AttributeType | |
 | name | String | |
 | label | LocalizedString | |
 | inputTip | LocalizedString | |
-| Boolean | isRequired | |
-| AttributeConstraint | attributeConstraint | |
-| TextInputHint | inputHint | |
-| Boolean | isSearchable | |
+| isRequired | Boolean | |
+| attributeConstraint | AttributeConstraint | |
+| inputHint | TextInputHint | |
+| isSearchable | Boolean | |
 
-### UpdateRequest
+### 2.5. UpdateRequest
 
 | field name | field type | comments |
 |-|-|-|
 | version | Integer | required, NotNull, min is 0 |
 | actions | List\<UpdateAction\> | required, NotNull |
 
-### UpdateAction
+### 2.6. UpdateAction
 
-#### SetKey
-
-| field name | field type | comments |
-|-|-|-|
-| action | String | required, set as `set_key` |
-| name | LocalizedString | required, NotNull |
-
-#### SetName
+#### 2.6.1. SetKey
 
 | field name | field type | comments |
 |-|-|-|
-| action | String | required, set as `set_name` |
+| action | String | required, set as `setKey` |
 | name | LocalizedString | required, NotNull |
 
-#### SetDescription
+#### 2.6.2. SetName
 
 | field name | field type | comments |
 |-|-|-|
-| action | String | required, set as `set_description` |
+| action | String | required, set as `setName` |
 | name | LocalizedString | required, NotNull |
 
-#### AddAttributeDefinition
+#### 2.6.3. SetDescription
 
 | field name | field type | comments |
 |-|-|-|
-| action | String | required, set as `add_attribute_definition` |
+| action | String | required, set as `setDescription` |
 | name | LocalizedString | required, NotNull |
 
-#### RemoveAttributeDefinition
+#### 2.6.4. AddAttributeDefinition
 
 | field name | field type | comments |
 |-|-|-|
-| action | String | required, set as `remove_attribute_definition` |
+| action | String | required, set as `addAttributeDefinition` |
 | name | LocalizedString | required, NotNull |
 
-#### SetAttributeLabel
+#### 2.6.5. RemoveAttributeDefinition
 
 | field name | field type | comments |
 |-|-|-|
-| action | String | required, set as `set_attribute_label` |
+| action | String | required, set as `removeAttributeDefinition` |
 | name | LocalizedString | required, NotNull |
 
-#### SetAttributeInputTip
+#### 2.6.6. SetAttributeLabel
 
 | field name | field type | comments |
 |-|-|-|
-| action | String | required, set as `set_attribute_definition_inputtip` |
+| action | String | required, set as `setLabel` |
 | name | LocalizedString | required, NotNull |
 
-#### AddPlainEnumValue
+#### 2.6.7. SetAttributeInputTip
 
 | field name | field type | comments |
 |-|-|-|
-| action | String | required, set as `add_plain_enum_value` |
+| action | String | required, set as `setInputTip` |
 | name | LocalizedString | required, NotNull |
 
-#### AddLocalizedEnumValue
+#### 2.6.8. AddPlainEnumValue
 
 | field name | field type | comments |
 |-|-|-|
-| action | String | required, set as `add_localized_enum_value` |
+| action | String | required, set as `addPlainEnumValue` |
 | name | LocalizedString | required, NotNull |
 
-#### SetAttributeOrder
+#### 2.6.9. AddLocalizedEnumValue
 
 | field name | field type | comments |
 |-|-|-|
-| action | String | required, set as `set_attribute_order` |
+| action | String | required, set as `addLocalizedEnumValue` |
 | name | LocalizedString | required, NotNull |
 
-#### SetPlainEnumValueOrder
+#### 2.6.10. SetAttributeOrder
 
 | field name | field type | comments |
 |-|-|-|
-| action | String | required, set as `set_enum_value_order` |
+| action | String | required, set as `setAttributeOrder` |
 | name | LocalizedString | required, NotNull |
 
-#### SetLocalizedEnumValueOrder
+#### 2.6.11. SetPlainEnumValueOrder
 
 | field name | field type | comments |
 |-|-|-|
-| action | String | required, set as `set_localized_enum_value_order` |
+| action | String | required, set as `setPlainEnumValueOrder` |
 | name | LocalizedString | required, NotNull |
 
-#### SetPlainEnumValueLabel
+#### 2.6.12. SetLocalizedEnumValueOrder
 
 | field name | field type | comments |
 |-|-|-|
-| action | String | required, set as `set_enum_value_label` |
+| action | String | required, set as `setLocalizedEnumValueOrder` |
 | name | LocalizedString | required, NotNull |
 
-#### SetLocalizedEnumValueLabel
+#### 2.6.13. SetPlainEnumValueLabel
 
 | field name | field type | comments |
 |-|-|-|
-| action | String | required, set as `set_localized_enum_value_label` |
+| action | String | required, set as `setPlainEnumValueLabel` |
 | name | LocalizedString | required, NotNull |
 
-#### SetIsSearchable
+#### 2.6.14. SetLocalizedEnumValueLabel
 
 | field name | field type | comments |
 |-|-|-|
-| action | String | required, set as `set_attribute_searchable` |
+| action | String | required, set as `setLocalizedEnumValueLabel` |
 | name | LocalizedString | required, NotNull |
 
-### PagedQueryResult
+#### 2.6.15. SetIsSearchable
+
+| field name | field type | comments |
+|-|-|-|
+| action | String | required, set as `setIsSearchable` |
+| name | LocalizedString | required, NotNull |
+
+### 2.7. PagedQueryResult
 
 | field name | field type | comments |
 |-|-|-|
@@ -176,9 +176,9 @@ TODO
 | results | List\<T\> | |
 | facets | Object | |
 
-## API
+## 3. API
 
-### create product type
+### 3.1. create product type
 
 * URL : {service url}/
 * method : POST
@@ -190,7 +190,7 @@ TODO
 
 * response : ProductTypeView
 
-### delete product type by id
+### 3.2. delete product type by id
 
 * URL : {service url}/{productTypeId}
 * method : DELETE
@@ -202,7 +202,7 @@ TODO
 
 * response : void
 
-### update product type by id
+### 3.3. update product type by id
 
 * URL : {service url}/{productTypeId}
 * method : PUT
@@ -214,13 +214,13 @@ TODO
 
 * response : ProductTypeView
 
-### get product type by id
+### 3.4. get product type by id
 
 * URL : {service url}/{productTypeId}
 * method : GET
 * response : ProductTypeView
 
-### query product type
+### 3.5. query product type
 
 * URL : {service url}/
 * method : GET
