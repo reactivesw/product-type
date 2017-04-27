@@ -60,105 +60,98 @@ TODO
 
 ### 2.6. UpdateAction
 
-#### 2.6.1. SetKey
-
-| field name | field type | comments |
-|-|-|-|
-| action | String | required, set as `setKey` |
-| name | LocalizedString | required, NotNull |
-
-#### 2.6.2. SetName
+#### 2.6.1. SetName
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `setName` |
 | name | LocalizedString | required, NotNull |
 
-#### 2.6.3. SetDescription
+#### 2.6.2. SetDescription
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `setDescription` |
 | name | LocalizedString | required, NotNull |
 
-#### 2.6.4. AddAttributeDefinition
+#### 2.6.3. AddAttributeDefinition
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `addAttributeDefinition` |
 | name | LocalizedString | required, NotNull |
 
-#### 2.6.5. RemoveAttributeDefinition
+#### 2.6.4. RemoveAttributeDefinition
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `removeAttributeDefinition` |
 | name | LocalizedString | required, NotNull |
 
-#### 2.6.6. SetAttributeLabel
+#### 2.6.5. SetAttributeLabel
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `setLabel` |
 | name | LocalizedString | required, NotNull |
 
-#### 2.6.7. SetAttributeInputTip
+#### 2.6.6. SetAttributeInputTip
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `setInputTip` |
 | name | LocalizedString | required, NotNull |
 
-#### 2.6.8. AddPlainEnumValue
+#### 2.6.7. AddPlainEnumValue
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `addPlainEnumValue` |
 | name | LocalizedString | required, NotNull |
 
-#### 2.6.9. AddLocalizedEnumValue
+#### 2.6.8. AddLocalizedEnumValue
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `addLocalizedEnumValue` |
 | name | LocalizedString | required, NotNull |
 
-#### 2.6.10. SetAttributeOrder
+#### 2.6.9. SetAttributeOrder
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `setAttributeOrder` |
 | name | LocalizedString | required, NotNull |
 
-#### 2.6.11. SetPlainEnumValueOrder
+#### 2.6.10. SetPlainEnumValueOrder
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `setPlainEnumValueOrder` |
 | name | LocalizedString | required, NotNull |
 
-#### 2.6.12. SetLocalizedEnumValueOrder
+#### 2.6.11. SetLocalizedEnumValueOrder
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `setLocalizedEnumValueOrder` |
 | name | LocalizedString | required, NotNull |
 
-#### 2.6.13. SetPlainEnumValueLabel
+#### 2.6.12. SetPlainEnumValueLabel
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `setPlainEnumValueLabel` |
 | name | LocalizedString | required, NotNull |
 
-#### 2.6.14. SetLocalizedEnumValueLabel
+#### 2.6.13. SetLocalizedEnumValueLabel
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `setLocalizedEnumValueLabel` |
 | name | LocalizedString | required, NotNull |
 
-#### 2.6.15. SetSearchable
+#### 2.6.14. SetSearchable
 
 | field name | field type | comments |
 |-|-|-|
