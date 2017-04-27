@@ -65,98 +65,107 @@ TODO
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `setName` |
-| name | LocalizedString | required, NotNull |
+| name | String | required, NotNull, maximum size is 1 |
 
 #### 2.6.2. SetDescription
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `setDescription` |
-| name | LocalizedString | required, NotNull |
+| description | String | required, NotNull |
 
 #### 2.6.3. AddAttributeDefinition
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `addAttributeDefinition` |
-| name | LocalizedString | required, NotNull |
+| attribute | AttributeDefinitionDraft | |
 
 #### 2.6.4. RemoveAttributeDefinition
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `removeAttributeDefinition` |
-| name | LocalizedString | required, NotNull |
+| name | String | required, NotNull, maximum size is 1 |
 
 #### 2.6.5. SetAttributeLabel
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `setLabel` |
-| name | LocalizedString | required, NotNull |
+| attributeName | String | required, NotNull, maximum size is 1 |
+| label | LocalizedString | required, NotNull |
 
 #### 2.6.6. SetAttributeInputTip
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `setInputTip` |
-| name | LocalizedString | required, NotNull |
+| attributeName | String | required, NotNull, maximum size is 1 |
+| inputTip | LocalizedString | required, NotNull |
 
 #### 2.6.7. AddPlainEnumValue
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `addPlainEnumValue` |
-| name | LocalizedString | required, NotNull |
+| attributeName | String | required, NotNull, maximum size is 1 |
+| value | PlainEnumValue | required, NotNull |
 
 #### 2.6.8. AddLocalizedEnumValue
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `addLocalizedEnumValue` |
-| name | LocalizedString | required, NotNull |
+| attributeName | String | required, NotNull, maximum size is 1 |
+| value | LocalizedEnumValue | required, NotNull |
 
 #### 2.6.9. SetAttributeOrder
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `setAttributeOrder` |
-| name | LocalizedString | required, NotNull |
+| attributes | List\<AttributeDefinitionView\> | required, NotNull, maximum size is 1 |
 
 #### 2.6.10. SetPlainEnumValueOrder
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `setPlainEnumValueOrder` |
-| name | LocalizedString | required, NotNull |
+| attributeName | String | required, NotNull, maximum size is 1 |
+| values | List\<PlainEnumValue\> | required, NotNull, maximum size is 1 |
 
 #### 2.6.11. SetLocalizedEnumValueOrder
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `setLocalizedEnumValueOrder` |
-| name | LocalizedString | required, NotNull |
+| attributeName | String | required, NotNull, maximum size is 1 |
+| values | List\<LocalizedEnumValue\> | required, NotNull, maximum size is 1 |
 
 #### 2.6.12. SetPlainEnumValueLabel
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `setPlainEnumValueLabel` |
-| name | LocalizedString | required, NotNull |
+| attributeName | String | required, NotNull, maximum size is 1 |
+| newValue | PlainEnumValue | required, NotNull |
 
 #### 2.6.13. SetLocalizedEnumValueLabel
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `setLocalizedEnumValueLabel` |
-| name | LocalizedString | required, NotNull |
+| attributeName | String | required, NotNull, maximum size is 1 |
+| newValue | LocalizedEnumValue | required, NotNull |
 
 #### 2.6.14. SetSearchable
 
 | field name | field type | comments |
 |-|-|-|
 | action | String | required, set as `setSearchable` |
-| name | LocalizedString | required, NotNull |
+| attributeName | String | required, NotNull, maximum size is 1 |
+| searchable | Boolean | required, NotNull |
 
 ### 2.7. PagedQueryResult
 
@@ -167,6 +176,32 @@ TODO
 | total | Integer | |
 | results | List\<T\> | |
 | facets | Object | |
+
+### 2.8. PlainEnumValue
+
+| field name | field type | comments |
+|-|-|-|
+| key | String | |
+| label | String | |
+
+### 2.9. LocalizedEnumValue
+
+| field name | field type | comments |
+|-|-|-|
+| key | String | |
+| label | LocalizedString | |
+
+### 2.10. AttributeConstraint
+AttributeConstraint is an enum class, It has following values:
+1. None
+2. Unique
+3. CombinationUnique,
+4. SameForAll
+
+### 2.11. TextInputHint
+TextInputHint is an enum class, It has following values:
+1. SingleLine
+2. MultiLine
 
 ## 3. API
 
