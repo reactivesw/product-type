@@ -21,7 +21,7 @@ TODO
 | type | AttributeType | required |
 | name | String | required, The name must be between two and 36 characters long and can contain the ASCII letters A to Z in lowercase or uppercase, digits, underscores (_) and the hyphen-minus (-) |
 | label | LocalizedString | required |
-| requirable | Boolean | required |
+| required | Boolean | required |
 | attributeConstraint | AttributeConstraint | required |
 | inputHint | TextInputHint | |
 | searchable | Boolean | required |
@@ -46,7 +46,7 @@ TODO
 | name | String | |
 | label | LocalizedString | |
 | inputTip | LocalizedString | |
-| requirable | Boolean | |
+| required | Boolean | |
 | attributeConstraint | AttributeConstraint | |
 | inputHint | TextInputHint | |
 | searchable | Boolean | |
