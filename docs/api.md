@@ -21,10 +21,10 @@ TODO
 | type | AttributeType | required |
 | name | String | required, The name must be between two and 36 characters long and can contain the ASCII letters A to Z in lowercase or uppercase, digits, underscores (_) and the hyphen-minus (-) |
 | label | LocalizedString | required |
-| isRequired | Boolean | required |
+| requirable | Boolean | required |
 | attributeConstraint | AttributeConstraint | required |
 | inputHint | TextInputHint | |
-| isSearchable | Boolean | required |
+| searchable | Boolean | required |
 | inputTip | LocalizedString | |
 
 ### 2.3. ProductTypeView
@@ -33,9 +33,8 @@ TODO
 |-----|------|-----|
 | id | String | |
 | version | Integer | |
-| createAt | ZonedDateTime | |
+| createdAt | ZonedDateTime | |
 | lastModifiedAt | ZonedDateTime | |
-| key | String | |
 | name | String | |
 | description | String | |
 | attributes | List\<AttributeDefinitionView\> | |
@@ -47,10 +46,10 @@ TODO
 | name | String | |
 | label | LocalizedString | |
 | inputTip | LocalizedString | |
-| isRequired | Boolean | |
+| requirable | Boolean | |
 | attributeConstraint | AttributeConstraint | |
 | inputHint | TextInputHint | |
-| isSearchable | Boolean | |
+| searchable | Boolean | |
 
 ### 2.5. UpdateRequest
 
@@ -159,11 +158,11 @@ TODO
 | action | String | required, set as `setLocalizedEnumValueLabel` |
 | name | LocalizedString | required, NotNull |
 
-#### 2.6.15. SetIsSearchable
+#### 2.6.15. SetSearchable
 
 | field name | field type | comments |
 |-|-|-|
-| action | String | required, set as `setIsSearchable` |
+| action | String | required, set as `setSearchable` |
 | name | LocalizedString | required, NotNull |
 
 ### 2.7. PagedQueryResult
