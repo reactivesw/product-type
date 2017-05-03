@@ -9,15 +9,89 @@ ProductType service provides following functions:
 + gett all productType
 
 ## 2. Model Design
-For ProducTType, there are such requirements:
+For ProductType, there are such requirements:
 * multi-language
 label, inputTip in attributes of productType should be multiple language
+
+* attributes definition
+each productType could have multiple attributes
 
 Following content describes how to achieve above requirement.
 ## 2.1. Multi-Language Design
 In our system, multi-language is basic feature, here is
 design
 [document](https://github.com/reactivesw/ecommerce-cloud/blob/master/docs/multilanguange-design.md)
+
+## 2.2. Attribute definition Design
+In productType, we use attribute to descript the property and feature of a
+productType and each productType could have several attributes. Taking `clothes`
+for example, `clothes` could have such kinds of attributes: *size*, *color*,
+*price*, etc. The type of attribute is defined in `AttributeType` enum class
+which includes *text*, *number*, *enum* and etc. What should pay attention to is
+that the relation between different attribute is constrainted by
+`attributeConstraint` filed which is defined in `AttributeDefinitionDraft`
+class. Moreover, the value of `attributeConstraint` filed is defined in
+`AttributeConstraint` enum class including:
+1. None -- no constrains between attributes
+2. Unique -- all attributes should be unique 
+3. CombinationUnique -- when two or more attributes combines, the combined
+   attribute shoule be unique
+4. SameforAll -- all values in a attribute should be same 
+
+Taking `clothes` for example:
+```json
+     {
+        "name": "clothes",
+        "description": "test description",
+        "attributes": [{
+                "type": {
+                    "name": "number"
+                },
+                "name": "size",
+                "label": {
+                    "en": "size",
+                    "zh_cn": "尺寸"
+                },
+                "isRequired": true,
+                "attributeConstraint": "CombinationUnique",
+                "isSearchable": true,
+                "inputHint": "SingleLine"
+            },
+            {
+                "type": {
+                    "name": "text"
+                },
+                "name": "color",
+                "label": {
+                    "en": "color",
+                    "zh_cn": "颜色"
+                },
+                "isRequired": true,
+                "attributeConstraint": "CombinationUnique",
+                "isSearchable": true,
+                "inputHint": "SingleLine"
+            },
+            {
+                "type": {
+                    "name": "enum",
+                    "values": [{
+                        "key": "enum-key",
+                        "label": "enum-value"
+                    }]
+                },
+                "name": "season-style",
+                "label": {
+                    "en": "season-style",
+                    "zh_cn": "季度款式"
+                },
+                "isRequired": true,
+                "attributeConstraint": "CombinationUnique",
+                "isSearchable": true,
+                "inputHint": "SingleLine"
+            }
+        ]
+    }
+```
 
 ## 3. Workflow
 
