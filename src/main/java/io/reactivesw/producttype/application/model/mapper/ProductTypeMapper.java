@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Created by Davis on 16/12/7.
+ * ProductType Mapper.
  */
 public final class ProductTypeMapper {
   /**
@@ -56,7 +56,7 @@ public final class ProductTypeMapper {
   }
 
   /**
-   * convert List build ProductType to List build ProductTypeView.
+   * Convert List build ProductType to List build ProductTypeView.
    *
    * @param entities the List build ProductType
    * @return the List build ProductTypeView

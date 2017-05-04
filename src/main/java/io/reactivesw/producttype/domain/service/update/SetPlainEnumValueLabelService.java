@@ -9,13 +9,13 @@ import io.reactivesw.producttype.infrastructure.update.UpdateAction;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by Davis on 17/1/3.
+ * Service to set plainEnumValue when update productType.
  */
 @Service(value = ProductTypeActionUtils.SET_ENUM_VALUE_LABEL)
 public class SetPlainEnumValueLabelService implements Updater<ProductType, UpdateAction> {
 
   /**
-   * set enum value label.
+   * Set enum value label.
    *
    * @param entity E
    * @param action UpdateAction

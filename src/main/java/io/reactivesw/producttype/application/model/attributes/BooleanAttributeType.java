@@ -8,14 +8,14 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 public final class BooleanAttributeType extends AbstractAttributeType {
 
   /**
-   * private constructor.
+   * Private constructor.
    */
   private BooleanAttributeType() {
     super();
   }
 
   /**
-   * build BooleanAttributeType from json data.
+   * Build BooleanAttributeType from json data.
    *
    * @return BooleanAttributeType
    */

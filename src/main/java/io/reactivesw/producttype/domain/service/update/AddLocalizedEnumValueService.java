@@ -13,12 +13,12 @@ import org.springframework.stereotype.Service;
 import java.util.Objects;
 
 /**
- * Created by Davis on 16/12/12.
+ * Service to add localizedEnumValue when update productType.
  */
 @Service(value = ProductTypeActionUtils.ADD_LOCALIZED_ENUM_VALUE)
 public class AddLocalizedEnumValueService implements Updater<ProductType, UpdateAction> {
   /**
-   * add localized enum value.
+   * Add localized enum value.
    *
    * @param entity E
    * @param action UpdateAction

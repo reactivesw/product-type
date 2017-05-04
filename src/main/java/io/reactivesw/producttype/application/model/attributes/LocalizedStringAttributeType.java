@@ -7,14 +7,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  */
 public final class LocalizedStringAttributeType extends AbstractAttributeType {
   /**
-   * private constructor.
+   * Private constructor.
    */
   private LocalizedStringAttributeType() {
     super();
   }
 
   /**
-   * build LocalizedStringAttributeType from json data.
+   * Build LocalizedStringAttributeType from json data.
    *
    * @return LocalizedStringAttributeType
    */

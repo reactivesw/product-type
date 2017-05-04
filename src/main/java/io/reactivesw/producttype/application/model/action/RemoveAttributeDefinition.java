@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * Created by Davis on 16/12/12.
+ * Be used to remove attributeDefinition when update productType.
  */
 @Getter
 @Setter
@@ -23,7 +23,7 @@ public class RemoveAttributeDefinition implements UpdateAction {
   private String name;
 
   /**
-   * get update service name.
+   * Get update service name.
    *
    * @return remove_attribute_definition
    */

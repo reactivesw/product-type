@@ -1,7 +1,7 @@
 package io.reactivesw.producttype.application.model.attributes;
 
 /**
- * Created by Davis on 16/11/16.
+ * Constraint between different attributes.
  */
 public enum AttributeConstraint {
 

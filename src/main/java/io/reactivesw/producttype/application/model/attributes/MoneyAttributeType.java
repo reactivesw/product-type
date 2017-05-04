@@ -7,14 +7,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  */
 public final class MoneyAttributeType extends AbstractAttributeType {
   /**
-   * private constructor.
+   * Private constructor.
    */
   private MoneyAttributeType() {
     super();
   }
 
   /**
-   * build MoneyAttributeType from json data.
+   * Build MoneyAttributeType from json data.
    *
    * @return MoneyAttributeType
    */

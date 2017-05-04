@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * Created by Davis on 16/12/30.
+ * Be used to set localizedEnumValueLabel when update productType.
  */
 @Getter
 @Setter
@@ -30,7 +30,7 @@ public class SetLocalizedEnumValueLabel implements UpdateAction {
   private LocalizedEnumValue newValue;
 
   /**
-   * get update service name.
+   * Get update service name.
    * @return set_localized_enum_value_label
    */
   @Override

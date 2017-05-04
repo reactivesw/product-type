@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Created by Davis on 16/12/7.
+ * Service for productType.
  */
 @Service
 public class ProductTypeService {
@@ -200,7 +200,7 @@ public class ProductTypeService {
   }
 
   /**
-   * validateNull version.
+   * ValidateNull version.
    *
    * @param version the version
    * @param entity  the entity
@@ -244,7 +244,7 @@ public class ProductTypeService {
   }
 
   /**
-   * update ProductTypeEntity.
+   * Update ProductTypeEntity.
    *
    * @param version the version
    * @param actions the update actions

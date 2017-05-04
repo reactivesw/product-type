@@ -13,7 +13,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = false)
 public final class EnumAttributeType extends AbstractAttributeType {
   /**
-   * enum value list.
+   * Enum value list.
    */
   private List<EnumValue> values;
 }

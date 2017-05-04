@@ -20,7 +20,7 @@ import io.reactivesw.producttype.application.model.action.SetPlainEnumValueLabel
 import io.reactivesw.producttype.application.model.action.SetPlainEnumValueOrder;
 
 /**
- * configurations for common update actions that will be used in more thant one service
+ * Configurations for common update actions that will be used in more thant one service
  * and this action also extends other action configure in each service.
  * Created by umasuo on 16/11/21.
  */

@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Created by Davis on 16/12/30.
+ * Be used to set plainEnumValue when update productType.
  */
 @Getter
 @Setter
@@ -24,7 +24,7 @@ public class SetPlainEnumValueLabel implements UpdateAction {
   private PlainEnumValue newValue;
 
   /**
-   * get update service name.
+   * Get update service name.
    * @return set_enum_value_label
    */
   @Override

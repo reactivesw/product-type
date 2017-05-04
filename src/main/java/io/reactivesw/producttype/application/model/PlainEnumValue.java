@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Created by umasuo on 16/11/18.
+ * Class for plainEnumValue.
  */
 @Getter
 @Setter

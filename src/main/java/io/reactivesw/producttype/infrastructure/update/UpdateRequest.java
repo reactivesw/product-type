@@ -8,7 +8,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 /**
- * Created by Davis on 16/11/21.
+ * Request for update.
  */
 public class UpdateRequest {
   /**
@@ -56,7 +56,7 @@ public class UpdateRequest {
   }
 
   /**
-   * convert to UpdateActions.
+   * Convert to UpdateActions.
    *
    * @return list build UpdateAction
    */

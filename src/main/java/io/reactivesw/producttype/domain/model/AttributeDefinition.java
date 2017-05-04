@@ -28,7 +28,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
- * Created by Davis on 16/11/22.
+ * Definition of attribute.
  */
 @Data
 @EqualsAndHashCode(callSuper = false)

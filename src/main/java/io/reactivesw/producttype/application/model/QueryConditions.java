@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Created by Davis on 16/11/21.
+ * Class for query conditions.
  */
 @Getter
 @Setter
@@ -21,12 +21,12 @@ public class QueryConditions {
   private Integer version;
 
   /**
-   * example name(en="Pro T-Shirt").
+   * Example name(en="Pro T-Shirt").
    */
   private String where;
 
   /**
-   * name.em
+   * Name.em
    */
   private String sort;
 

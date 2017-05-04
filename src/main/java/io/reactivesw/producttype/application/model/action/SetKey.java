@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Created by Davis on 16/12/8.
+ * Be used to set key when update productType.
  */
 @Getter
 @Setter
@@ -17,7 +17,7 @@ public class SetKey implements UpdateAction {
   private String key;
 
   /**
-   * get update service name.
+   * Get update service name.
    * @return set_key
    */
   @Override

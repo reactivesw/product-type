@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * Created by Davis on 16/12/12.
+ * Be used to add plainEnumValue when update productType.
  */
 @Getter
 @Setter
@@ -29,7 +29,7 @@ public class AddPlainEnumValue implements UpdateAction {
   private PlainEnumValue value;
 
   /**
-   * get update service name.
+   * Get update service name.
    * @return add_plain_enum_value
    */
   @Override

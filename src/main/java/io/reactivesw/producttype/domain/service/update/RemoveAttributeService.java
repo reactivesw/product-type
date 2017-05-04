@@ -13,12 +13,12 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
- * Created by Davis on 16/12/12.
+ * Service to remove attribute when update productType.
  */
 @Service(value = ProductTypeActionUtils.REMOVE_ATTRIBUTE_DEFINITION)
 public class RemoveAttributeService implements Updater<ProductType, UpdateAction> {
   /**
-   * remove attribute from product type.
+   * Remove attribute from product type.
    *
    * @param entity E
    * @param action UpdateAction

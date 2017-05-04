@@ -14,12 +14,12 @@ import org.springframework.stereotype.Service;
 import java.util.Objects;
 
 /**
- * Created by Davis on 16/12/12.
+ * Service to add plainEnumValue when update productType.
  */
 @Service(value = ProductTypeActionUtils.ADD_PLAIN_ENUM_VALUE)
 public class AddPlainEnumValueService implements Updater<ProductType, UpdateAction> {
   /**
-   * add enum value.
+   * Add enum value.
    *
    * @param entity E
    * @param action UpdateAction

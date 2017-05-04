@@ -8,13 +8,13 @@ import io.reactivesw.producttype.infrastructure.update.UpdateAction;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by Davis on 17/1/2.
+ * Service to set key when update productType.
  */
 @Service(value = ProductTypeActionUtils.SET_KEY)
 public class SetKeyService implements Updater<ProductType, UpdateAction> {
 
   /**
-   * set product type key.
+   * Set product type key.
    *
    * @param entity E
    * @param action UpdateAction

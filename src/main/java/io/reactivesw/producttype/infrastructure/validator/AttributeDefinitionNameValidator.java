@@ -14,16 +14,16 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * Created by Davis on 16/12/20.
+ * Validator for attributeDefinition.
  */
 public final class AttributeDefinitionNameValidator {
   /**
-   * log.
+   * Log.
    */
   private static final Logger LOG = LoggerFactory.getLogger(AttributeDefinitionNameValidator.class);
 
   /**
-   * private constructor.
+   * Private constructor.
    */
   private AttributeDefinitionNameValidator() {
   }
