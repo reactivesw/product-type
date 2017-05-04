@@ -49,11 +49,12 @@ public class ProductTypeController {
   @PostMapping(Router.PRODUCT_TYPE_ROOT)
   public ProductTypeView createProductType(@RequestBody
                                            @Valid ProductTypeDraft productTypeDraft) {
-    LOG.debug("enter createProductType, draft is:{}", productTypeDraft.toString());
+    LOG.info("Enter. Create productType: {}.", productTypeDraft);
 
     ProductTypeView result = productTypeService.createProductType(productTypeDraft);
 
-    LOG.debug("end createProductType, new product type is:{}", result.toString());
+    LOG.info("Exit. ProductTypeId: {}.",result.getId());
+    LOG.trace("ProductType: {}.",result);
 
     return result;
   }
@@ -67,11 +68,11 @@ public class ProductTypeController {
   @DeleteMapping(Router.PRODUCT_TYPE_WITH_ID)
   public void deleteProductTypeById(@PathVariable(value = Router.PRODUCT_TYPE_ID) String id,
                                     @RequestParam @NotNull Integer version) {
-    LOG.debug("enter deleteProductTypeById, id is : {}, version is : {}", id, version);
+    LOG.info("Enter. ProductTypeId: {}, version: {}.", id, version);
 
     productTypeService.deleteProductTypeById(id, version);
 
-    LOG.debug("end deleteProductTypeById, id is : {}, version is : {}", id, version);
+    LOG.info("Exit. ProductTypeId: {}, version: {}.",id,version);
   }
 
   /**
@@ -83,11 +84,11 @@ public class ProductTypeController {
   @DeleteMapping(Router.PRODUCT_TYPE_WITH_KEY)
   public void deleteProductTypeByKey(@PathVariable(value = Router.PRODUCT_TYPE_KEY) String key,
                                      @RequestParam @NotNull Integer version) {
-    LOG.debug("enter deleteProductTypeById, key is : {}, version is : {}", key, version);
+    LOG.info("Enter. ProductTypeKey: {}, version: {}.",key,version);
 
     productTypeService.deleteProductTypeByKey(key, version);
 
-    LOG.debug("end deleteProductTypeById, key is : {}, version is : {}", key, version);
+    LOG.info("Exit. ProductTypeKey: {}, version: {}.",key,version);
   }
 
 
@@ -102,14 +103,14 @@ public class ProductTypeController {
   public ProductTypeView updateProductTypeById(@PathVariable(value = Router.PRODUCT_TYPE_ID)
                                                    String id,
                                                @RequestBody @Valid UpdateRequest updateRequest) {
-    LOG.debug("enter updateProductTypeById,id is {}, update request is {}",
-        id, updateRequest.toString());
+    LOG.info("Enter. ProductTypeId: {}, update request: {}.",id,updateRequest);
 
     ProductTypeView result = productTypeService.updateProductTypeById(id, updateRequest
             .getVersion(),
         updateRequest.getActions());
 
-    LOG.debug("end updateCategory, updated Category is {}", result.toString());
+    LOG.info("Exit. ProductTypeId: {}.",result.getId());
+    LOG.trace("Updated ProductType: {}.",result);
 
     return result;
   }
@@ -125,15 +126,13 @@ public class ProductTypeController {
   public ProductTypeView updateProductTypeByKey(@PathVariable(value = Router.PRODUCT_TYPE_ID)
                                                     String key,
                                                 @RequestBody @Valid UpdateRequest updateRequest) {
-    LOG.debug("enter updateProductTypeById,key is {}, update request is {}",
-        key, updateRequest.toString());
-
+    LOG.info("Enter. ProductTypeKey: {}, update request: {}.",key,updateRequest);
     ProductTypeView result = productTypeService.updateProductTypeByKey(key, updateRequest
             .getVersion(),
         updateRequest.getActions());
 
-    LOG.debug("end updateCategory, updated Category is {}", result.toString());
-
+    LOG.info("Exit. ProductTypeId: {}.",result.getId());
+    LOG.trace("Updated ProductType: {}.",result);
     return result;
   }
 
@@ -146,9 +145,10 @@ public class ProductTypeController {
   @GetMapping(Router.PRODUCT_TYPE_WITH_ID)
   public ProductTypeView getProductTypeById(@PathVariable(value = Router.PRODUCT_TYPE_ID) String
                                                 id) {
-    LOG.debug("enter getProductTypeById, id is:{}", id);
+    LOG.info("Enter. ProductTypeId: {}.",id);
     ProductTypeView result = productTypeService.getProductTypeById(id);
-    LOG.debug("end getProductTypeById, get ProductType : {}", result.toString());
+    LOG.info("Exit. ProductTypeId: {}.",result.getId());
+    LOG.trace("ProductType: {}.",result);
     return result;
   }
 
@@ -161,11 +161,11 @@ public class ProductTypeController {
   @GetMapping(Router.PRODUCT_TYPE_WITH_KEY)
   public ProductTypeView getProductTypeByKey(@PathVariable(value = Router.PRODUCT_TYPE_KEY)
                                                  String key) {
-    LOG.debug("enter getProductTypeByKey, key is : {}", key);
-
+    LOG.info("Enter. ProductTypeKey: {}.",key);
     ProductTypeView result = productTypeService.getProductTypeByKey(key);
 
-    LOG.debug("end getProductTypeById, get ProductType : {}", result.toString());
+    LOG.info("Exit. ProductTypeId: {}.",result.getId());
+    LOG.trace("ProductType: {}.",result);
 
     return result;
   }
@@ -178,12 +178,12 @@ public class ProductTypeController {
    */
   @GetMapping(Router.PRODUCT_TYPE_ROOT)
   public PagedQueryResult<ProductTypeView> queryProductTypes(QueryConditions queryConditions) {
-    LOG.debug("enter queryProductTypes, QueryConditions is : {}", queryConditions.toString());
-
+    LOG.info("Enter. Query parameters: {}.",queryConditions);
     PagedQueryResult<ProductTypeView> result = productTypeService.queryProductTypes(
                                                                               queryConditions);
 
-    LOG.debug("end queryProductTypes, productType number is : {}", result.getResults().size());
+    LOG.info("Exit. Result count: {}.",result.getResults().size());
+    LOG.trace("Query result: {}.",result);
 
     return result;
   }

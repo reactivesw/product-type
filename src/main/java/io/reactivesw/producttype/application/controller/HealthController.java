@@ -39,8 +39,12 @@ public class HealthController {
    */
   @GetMapping(PRODUCT_TYPE_HEALTH_CHECK)
   public String healthCheck() {
-    LOG.debug("enter healthCheck");
+    LOG.info("Enter.");
 
-    return serviceName + ", system time: " + System.currentTimeMillis();
+    Long currentTime=System.currentTimeMillis();
+    LOG.info("Exit. Service name: {}, current time: {}.", serviceName,
+        currentTime);
+    return serviceName + ", system time: " + currentTime;
+
   }
 }

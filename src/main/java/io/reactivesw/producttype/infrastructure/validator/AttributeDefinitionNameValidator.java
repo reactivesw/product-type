@@ -44,8 +44,8 @@ public final class AttributeDefinitionNameValidator {
 
       Set<String> attributeSets = Sets.newHashSet(attributeDefinitionNames);
       if (attributeSets.size() < attributeDefinitionNames.size()) {
-        LOG.debug("attribute name should be unique");
-        throw new ParametersException("attribute name should be unique");
+        LOG.debug("Attribute name should be unique.");
+        throw new ParametersException("Attribute name should be unique.");
       }
     }
   }
