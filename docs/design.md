@@ -23,20 +23,21 @@ design
 [document](https://github.com/reactivesw/ecommerce-cloud/blob/master/docs/multilanguange-design.md)
 
 ## 2.2. Attribute definition Design
-In productType, we use attribute to descript the property and feature of a
-productType and each productType could have several attributes. Taking `clothes`
-for example, `clothes` could have such kinds of attributes: *size*, *color*,
-*price*, etc. The type of attribute is defined in `AttributeType` enum class
-which includes *text*, *number*, *enum* and etc. What should pay attention to is
-that the relation between different attribute is constrainted by
-`attributeConstraint` filed which is defined in `AttributeDefinitionDraft`
-class. Moreover, the value of `attributeConstraint` filed is defined in
-`AttributeConstraint` enum class including:
-1. None -- no constrains between attributes
-2. Unique -- all attributes should be unique 
-3. CombinationUnique -- when two or more attributes combines, the combined
-   attribute shoule be unique
-4. SameforAll -- all values in a attribute should be same 
+As you know, productType service defines type of product, and a product could
+have several property which is defined in productType called `attributes`. There
+are some rules about attributes defined in productType:
+1. attributes label should be multiple language.
+2. value of attributes type is defined in a enum class `attributeType`. Details
+are demonstrated in [api document](./api.md).
+3. relation of different attributes are defined in an enum class
+   `AttributeConstraint` including:
+   + None -- no constrains between attributes.
+   + Unique -- all attributes should be unique.
+   + CombinationUnique -- when two or more attributes combines, the combined attribute shoule be unique.
+   + SameforAll -- all values in a attribute should be same.
+4. isRequired means whether this attribute need to appear in a product or not.
+5. value of inputHint is defined in an enum class `TextInputHint` describes
+   inputHint is `SingleLine` or `MultiLine`.
 
 Taking `clothes` for example:
 ```json
@@ -92,6 +93,8 @@ Taking `clothes` for example:
         ]
     }
 ```
+
+
 
 ## 3. Workflow
 
