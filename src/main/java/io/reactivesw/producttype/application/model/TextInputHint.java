@@ -1,7 +1,7 @@
 package io.reactivesw.producttype.application.model;
 
 /**
- * Created by umasuo on 16/11/18.
+ * Value of inputHint defined in AttributeType.
  */
 public enum TextInputHint {
   SingleLine,

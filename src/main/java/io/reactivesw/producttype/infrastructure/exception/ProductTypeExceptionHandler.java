@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Created by umasuo on 17/3/2.
+ * Exception handler for productType.
  */
 @Component
 public class ProductTypeExceptionHandler extends ExceptionHandler implements
     HandlerExceptionResolver {
 
   /**
-   * resolve exception.
+   * Resolve exception.
    *
    * @param request  the HttpServletRequest
    * @param response the HttpServletResponse

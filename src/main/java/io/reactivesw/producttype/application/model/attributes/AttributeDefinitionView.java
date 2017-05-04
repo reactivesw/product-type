@@ -8,7 +8,7 @@ import io.reactivesw.producttype.application.model.TextInputHint;
 import lombok.Data;
 
 /**
- * Created by Davis on 16/11/16.
+ * View of attributeDefinition.
  */
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)

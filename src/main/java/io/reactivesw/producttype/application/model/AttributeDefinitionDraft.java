@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 /**
- * Created by Davis on 16/11/17.
+ * Draft for attributeDefinition.
  */
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -73,7 +73,7 @@ public class AttributeDefinitionDraft {
   private Boolean isSearchable;
 
   /**
-   * inputTip.
+   * InputTip.
    */
   private LocalizedString inputTip;
 }

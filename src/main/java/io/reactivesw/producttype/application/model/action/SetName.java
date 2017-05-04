@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * Created by Davis on 16/12/30.
+ * Be used to set name when update productType.
  */
 @Getter
 @Setter
@@ -22,7 +22,7 @@ public class SetName implements UpdateAction {
   private String name;
 
   /**
-   * get update service name.
+   * Get update service name.
    * @return set_name
    */
   @Override

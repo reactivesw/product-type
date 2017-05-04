@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * Created by umasuo on 16/11/18.
+ * Class for localizedEnumValue.
  */
 @Data
 @AllArgsConstructor

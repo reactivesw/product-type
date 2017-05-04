@@ -17,12 +17,12 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
- * Created by Davis on 17/1/2.
+ * Service to set plainEnumValue when update productType.
  */
 @Service(value = ProductTypeActionUtils.SET_ENUM_VALUE_ORDER)
 public class SetPlainEnumValueOrderService implements Updater<ProductType, UpdateAction> {
   /**
-   * set plain enum value order.
+   * Set plain enum value order.
    *
    * @param entity E
    * @param action UpdateAction

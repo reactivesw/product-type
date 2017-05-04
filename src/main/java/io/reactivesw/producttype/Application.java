@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 /**
- * Created by Davis on 17/2/14.
+ * Application launcher.
  */
 @SpringBootApplication(scanBasePackages = "io.reactivesw")
 public class Application {

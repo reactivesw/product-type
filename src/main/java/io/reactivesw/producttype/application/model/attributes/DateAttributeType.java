@@ -7,14 +7,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  */
 public final class DateAttributeType extends AbstractAttributeType {
   /**
-   * private constructor.
+   * Private constructor.
    */
   private DateAttributeType() {
     super();
   }
 
   /**
-   * build DateAttributeType from json data.
+   * Build DateAttributeType from json data.
    *
    * @return DateAttributeType
    */

@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * Created by Davis on 16/11/17.
+ * Draft for productType.
  */
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)

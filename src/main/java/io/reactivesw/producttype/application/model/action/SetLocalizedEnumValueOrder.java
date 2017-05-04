@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * Created by Davis on 16/12/30.
+ * Be used to set localizedEnumValueOrder when update productType.
  */
 @Getter
 @Setter
@@ -33,7 +33,7 @@ public class SetLocalizedEnumValueOrder implements UpdateAction {
   private List<LocalizedEnumValue> values;
 
   /**
-   * get update service name.
+   * Get update service name.
    * @return set_localized_enum_value_order
    */
   @Override

@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * Created by Davis on 16/12/30.
+ * Be used to set searchable when update productType.
  */
 @Getter
 @Setter
@@ -29,7 +29,7 @@ public class SetIsSearchable implements UpdateAction {
   private Boolean isSearchable;
 
   /**
-   * get update service name.
+   * Get update service name.
    * @return set_attribute_definition_is_searchable
    */
   @Override

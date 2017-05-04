@@ -4,7 +4,7 @@ import io.reactivesw.producttype.domain.model.ProductType;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- * Created by Davis on 16/12/7.
+ * Repository for productType
  */
 public interface ProductTypeRepository extends JpaRepository<ProductType, String> {
   /**

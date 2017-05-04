@@ -7,14 +7,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  */
 public final class TimeAttributeType extends AbstractAttributeType {
   /**
-   * private constructor.
+   * Private constructor.
    */
   private TimeAttributeType() {
     super();
   }
 
   /**
-   * build a new object.
+   * Build a new object.
    *
    * @return TimeAttributeType
    */

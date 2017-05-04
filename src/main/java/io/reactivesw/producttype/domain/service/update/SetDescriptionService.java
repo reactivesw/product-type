@@ -8,12 +8,12 @@ import io.reactivesw.producttype.infrastructure.update.UpdateAction;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by Davis on 17/1/2.
+ * Service to set description when update productType.
  */
 @Service(value = ProductTypeActionUtils.SET_DESCRIPTION)
 public class SetDescriptionService implements Updater<ProductType, UpdateAction> {
   /**
-   * set product type description.
+   * Set product type description.
    *
    * @param entity E
    * @param action UpdateAction

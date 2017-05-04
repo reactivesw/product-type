@@ -12,7 +12,7 @@ import java.time.ZonedDateTime;
 import java.util.List;
 
 /**
- * Created by Davis on 16/11/16.
+ * View for ProductType.
  */
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)

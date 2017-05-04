@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 /**
- * Created by Davis on 16/12/10.
+ * Result of query.
  *
  * @param <T> the type parameter
  */

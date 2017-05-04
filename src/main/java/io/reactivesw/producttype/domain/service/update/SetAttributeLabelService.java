@@ -16,12 +16,12 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * Created by Davis on 16/12/12.
+ * Service to set attribute label when update productType.
  */
 @Service(value = ProductTypeActionUtils.SET_ATTRIBUTE_DEFINITION_LABEL)
 public class SetAttributeLabelService implements Updater<ProductType, UpdateAction> {
   /**
-   * set attribute label.
+   * Set attribute label.
    *
    * @param entity E
    * @param action UpdateAction

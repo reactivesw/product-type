@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Created by Davis on 16/12/30.
+ * Be used to set description when update productType.
  */
 @Getter
 @Setter
@@ -18,7 +18,7 @@ public class SetDescription implements UpdateAction {
   private String description;
 
   /**
-   * get update service name.
+   * Get update service name.
    * @return set_description
    */
   @Override

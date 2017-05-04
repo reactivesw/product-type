@@ -14,12 +14,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Created by Davis on 16/12/12.
+ * Service to set attribute order when update productType.
  */
 @Service(value = ProductTypeActionUtils.SET_ATTRIBUTE_ORDER)
 public class SetAttributeOrderService implements Updater<ProductType, UpdateAction> {
   /**
-   * change attribute order.
+   * Change attribute order.
    * The attributes must be equal to the product type attributes (except for the order).
    *
    * @param entity E

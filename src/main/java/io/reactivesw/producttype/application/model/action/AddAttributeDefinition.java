@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Created by Davis on 16/12/8.
+ * Be used to add attributeDefinition when update productType.
  */
 @Getter
 @Setter
@@ -19,7 +19,7 @@ public class AddAttributeDefinition implements UpdateAction {
   private AttributeDefinitionDraft attribute;
 
   /**
-   * return update service name.
+   * Return update service name.
    *
    * @return add_attribute_definition
    */

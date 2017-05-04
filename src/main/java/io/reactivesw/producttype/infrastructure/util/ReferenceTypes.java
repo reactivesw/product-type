@@ -1,7 +1,7 @@
 package io.reactivesw.producttype.infrastructure.util;
 
 /**
- * Created by Davis on 16/11/16.
+ * Enum for referenceTypes.
  */
 public enum ReferenceTypes {
 
@@ -32,12 +32,12 @@ public enum ReferenceTypes {
   TAXCATEGORY("tax-category");
 
   /**
-   * enum value.
+   * Enum value.
    */
   private String value;
 
   /**
-   * private constructor.
+   * Private constructor.
    * @param value enum value
    */
   private ReferenceTypes(String value) {
@@ -45,7 +45,7 @@ public enum ReferenceTypes {
   }
 
   /**
-   * get type id.
+   * Get type id.
    *
    * @return String
    */

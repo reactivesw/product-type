@@ -15,12 +15,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Created by Davis on 17/1/2.
+ * Service to add attribute when update productType.
  */
 @Service(value = ProductTypeActionUtils.ADD_ATTRIBUTE_DEFINITION)
 public class AddAttributeService implements Updater<ProductType, UpdateAction> {
   /**
-   * add attribute definition to product type.
+   * Add attribute definition to product type.
    *
    * @param entity E
    * @param action UpdateAction

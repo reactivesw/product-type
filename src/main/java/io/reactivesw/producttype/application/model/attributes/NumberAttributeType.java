@@ -7,14 +7,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  */
 public final class NumberAttributeType extends AbstractAttributeType {
   /**
-   * private constructor.
+   * Private constructor.
    */
   private NumberAttributeType() {
     super();
   }
 
   /**
-   * build NumberAttributeType from json data.
+   * Build NumberAttributeType from json data.
    *
    * @return NumberAttributeType
    */

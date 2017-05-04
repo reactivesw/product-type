@@ -1,11 +1,11 @@
 package io.reactivesw.producttype.infrastructure.update;
 
 /**
- * Created by Davis on 16/12/30.
+ * Utils for productType action.
  */
 public final class ProductTypeActionUtils {
   /**
-   * root name.
+   * Root name.
    */
   private static final String PRODUCT_TYPE_ROOT = "product_type_";
 

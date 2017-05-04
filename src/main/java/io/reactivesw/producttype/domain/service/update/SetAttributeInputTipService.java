@@ -16,12 +16,12 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * Created by Davis on 16/12/12.
+ * Service to set attribute inputTip when update productType.
  */
 @Service(value = ProductTypeActionUtils.SET_ATTRIBUTE_DEFINITION_INPUTTIP)
 public class SetAttributeInputTipService implements Updater<ProductType, UpdateAction> {
   /**
-   * set attribute input tip.
+   * Set attribute input tip.
    *
    * @param entity E
    * @param action UpdateAction

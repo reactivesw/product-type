@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Created by Davis on 16/11/30.
+ * Localized string mapper.
  */
 public final class LocalizedStringMapper {
 
@@ -104,7 +104,7 @@ public final class LocalizedStringMapper {
   }
 
   /**
-   * build LocalizedStringValue from Map.Entry.
+   * Build LocalizedStringValue from Map.Entry.
    *
    * @param localizedValue Map.Entry
    * @return LocalizedStringValue
@@ -115,7 +115,7 @@ public final class LocalizedStringMapper {
   }
 
   /**
-   * convert LocalizedString  to Set build LocalizedStringValue.
+   * Convert LocalizedString  to Set build LocalizedStringValue.
    *
    * @param localizedString         LocalizedString
    * @param localizedStringEntities Set build LocalizedStringValue

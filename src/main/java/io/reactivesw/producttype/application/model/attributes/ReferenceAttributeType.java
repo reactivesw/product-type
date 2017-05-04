@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class ReferenceAttributeType extends AbstractAttributeType {
   /**
-   * reference type id.
+   * Reference type id.
    */
   private String referenceTypeId;
 }

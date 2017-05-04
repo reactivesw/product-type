@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public final class AttributeDefinitionMapper {
 
   /**
-   * private constructor.
+   * Private constructor.
    */
   private AttributeDefinitionMapper() {
   }
@@ -38,7 +38,7 @@ public final class AttributeDefinitionMapper {
   }
 
   /**
-   * convert Model to AttributeDefinitionView.
+   * Convert Model to AttributeDefinitionView.
    *
    * @param draft the draft
    * @return the AttributeDefinitionView
@@ -70,7 +70,7 @@ public final class AttributeDefinitionMapper {
   }
 
   /**
-   * convert Entity to AttributeDefinitionView.
+   * Convert Entity to AttributeDefinitionView.
    *
    * @param entity the entity
    * @return the attribute definition

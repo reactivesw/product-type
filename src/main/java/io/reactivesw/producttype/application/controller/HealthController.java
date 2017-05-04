@@ -9,17 +9,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Created by umasuo on 17/2/21.
+ * Controller to check service health.
  */
 @RestController
 public class HealthController {
   /**
-   * log.
+   * Log.
    */
   private static final Logger LOG = LoggerFactory.getLogger(HealthController.class);
 
   /**
-   * service name.
+   * Service name.
    */
   private transient String serviceName;
 
@@ -33,7 +33,7 @@ public class HealthController {
   }
 
   /**
-   * this api is used for health check.
+   * This api is used for health check.
    *
    * @return service name.
    */

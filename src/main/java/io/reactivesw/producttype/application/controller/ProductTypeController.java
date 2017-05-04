@@ -25,12 +25,12 @@ import javax.validation.constraints.NotNull;
 
 
 /**
- * Created by Davis on 16/12/7.
+ * Controller for productType to CRUD.
  */
 @RestController
 public class ProductTypeController {
   /**
-   * log.
+   * Log.
    */
   private static final Logger LOG = LoggerFactory.getLogger(ProductTypeController.class);
 

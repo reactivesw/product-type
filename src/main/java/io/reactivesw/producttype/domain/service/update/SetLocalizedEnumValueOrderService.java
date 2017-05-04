@@ -18,12 +18,12 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
- * Created by Davis on 17/1/2.
+ * Service to set localizedEnumValue when update productType.
  */
 @Service(value = ProductTypeActionUtils.SET_LOCALIZED_ENUM_VALUE_ORDER)
 public class SetLocalizedEnumValueOrderService implements Updater<ProductType, UpdateAction> {
   /**
-   * set plain enum value order.
+   * Set plain enum value order.
    *
    * @param entity E
    * @param action UpdateAction
@@ -77,7 +77,7 @@ public class SetLocalizedEnumValueOrderService implements Updater<ProductType, U
   }
 
   /**
-   * Gets orderd keys.
+   * Gets ordered keys.
    *
    * @param setLocalizedEnumValueOrder the set plain enum value order
    * @return the orderd keys

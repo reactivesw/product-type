@@ -7,14 +7,14 @@ import com.fasterxml.jackson.annotation.JsonCreator;
  */
 public final class StringAttributeType extends AbstractAttributeType {
   /**
-   * private constructor.
+   * Private constructor.
    */
   private StringAttributeType() {
     super();
   }
 
   /**
-   * build from json data.
+   * Build from json data.
    *
    * @return StringAttributeType
    */

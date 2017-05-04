@@ -22,7 +22,7 @@ import javax.persistence.Table;
 import javax.persistence.Version;
 
 /**
- * Created by Davis on 16/11/22.
+ * Product type.
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -55,32 +55,32 @@ public class ProductType {
   protected ZonedDateTime lastModifiedAt;
 
   /**
-   * version.
+   * Version.
    */
   @Version
   @Column
   private Integer version;
 
   /**
-   * key word.
+   * Key word.
    */
   @Column(name = "product_type_key")
   private String key;
 
   /**
-   * name.
+   * Name.
    */
   @Column
   private String name;
 
   /**
-   * description.
+   * Description.
    */
   @Column
   private String description;
 
   /**
-   * attributes.
+   * Attributes.
    */
   @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
   private List<AttributeDefinition> attributes;

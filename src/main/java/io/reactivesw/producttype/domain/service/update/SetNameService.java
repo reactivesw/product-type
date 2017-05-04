@@ -8,12 +8,12 @@ import io.reactivesw.producttype.infrastructure.update.UpdateAction;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by Davis on 16/12/30.
+ * Service to set name when update productType.
  */
 @Service(value = ProductTypeActionUtils.SET_NAME)
 public class SetNameService implements Updater<ProductType, UpdateAction> {
   /**
-   * set product type name.
+   * Set product type name.
    *
    * @param entity E
    * @param action UpdateAction

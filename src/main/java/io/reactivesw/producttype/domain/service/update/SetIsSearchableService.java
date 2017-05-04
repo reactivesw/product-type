@@ -8,12 +8,12 @@ import io.reactivesw.producttype.infrastructure.update.UpdateAction;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by Davis on 17/1/3.
+ * Set searchable when update productType.
  */
 @Service(value = ProductTypeActionUtils.SET_ATTRIBUTE_SEARCHABLE)
 public class SetIsSearchableService implements Updater<ProductType, UpdateAction> {
   /**
-   * set isSearchable to attribute.
+   * Set isSearchable to attribute.
    *
    * @param entity E
    * @param action UpdateAction

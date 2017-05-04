@@ -7,19 +7,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Created by umasuo on 16/11/17.
+ * Attribute class.
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Attribute {
   /**
-   * attribute name.
+   * Attribute name.
    */
   private String name;
 
   /**
-   * attribute value.
+   * Attribute value.
    */
   private JsonNode value;
 }
