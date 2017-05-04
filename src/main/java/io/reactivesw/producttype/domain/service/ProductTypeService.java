@@ -26,10 +26,16 @@ import java.util.Objects;
  */
 @Service
 public class ProductTypeService {
+
   /**
    * log.
    */
   private static final Logger LOG = LoggerFactory.getLogger(ProductTypeService.class);
+
+  /**
+   * Log exit with product type id.
+   */
+  private static final String LOG_EXIT_PRODUCTTYPEID = "Exit. ProductTypeId: {}.";
 
   /**
    * The Product type repository.
@@ -61,14 +67,14 @@ public class ProductTypeService {
     ProductTypeView result = ProductTypeMapper.toModel(savedEntity);
 
     LOG.debug("Exit. New productTypeId: {}.", result.getId());
-    LOG.trace("New productType: {}.",result);
+    LOG.trace("New productType: {}.", result);
     return result;
   }
 
   /**
    * Delete ProductType by id.
    *
-   * @param id      the id
+   * @param id the id
    * @param version the version
    */
   public void deleteProductTypeById(String id, Integer version) {
@@ -83,13 +89,13 @@ public class ProductTypeService {
     // TODO: 16/12/8 send a message
 
     LOG.debug("Exit. Deleted productTypeId: {}, version: {}.", id, version);
-    LOG.trace("Deleted productType: {}.",entity);
+    LOG.trace("Deleted productType: {}.", entity);
   }
 
   /**
    * Delete ProductType by key.
    *
-   * @param key     the key
+   * @param key the key
    * @param version the version
    */
   public void deleteProductTypeByKey(String key, Integer version) {
@@ -104,14 +110,14 @@ public class ProductTypeService {
 
     // TODO: 16/12/8 send a message
 
-    LOG.debug("Exit. Deleted productTypeId: {}, version: {}.",entity.getId(),version);
-    LOG.trace("Deleted productType: {}.",entity);
+    LOG.debug("Exit. Deleted productTypeId: {}, version: {}.", entity.getId(), version);
+    LOG.trace("Deleted productType: {}.", entity);
   }
 
   /**
    * Update ProductType by id.
    *
-   * @param id      the id
+   * @param id the id
    * @param version the version
    * @param actions the actions
    * @return the updated ProductType
@@ -124,29 +130,29 @@ public class ProductTypeService {
     ProductType entity = getProductTypeEntityById(id);
     ProductTypeView result = updateProductTypeEntity(version, actions, entity);
 
-    LOG.debug("Exit. ProductTypeId: {}.",result.getId());
-    LOG.trace("Updated ProductType: {}.",result);
+    LOG.debug(LOG_EXIT_PRODUCTTYPEID, result.getId());
+    LOG.trace("Updated ProductType: {}.", result);
     return result;
   }
 
   /**
    * Update ProductType by key.
    *
-   * @param key     the key
+   * @param key the key
    * @param version the version
    * @param actions the actions
    * @return the updated ProductType
    */
   public ProductTypeView updateProductTypeByKey(String key, Integer version,
-                                                List<UpdateAction> actions) {
+      List<UpdateAction> actions) {
     LOG.debug("Enter. ProductTypeKey: {}, version: {}, update actions: {}.",
         key, version, actions);
 
     ProductType entity = getProductTypeEntityByKey(key);
     ProductTypeView result = updateProductTypeEntity(version, actions, entity);
 
-    LOG.debug("Exit. ProductTypeId: {}.",result.getId());
-    LOG.trace("Updated productType: {}.",result);
+    LOG.debug(LOG_EXIT_PRODUCTTYPEID, result.getId());
+    LOG.trace("Updated productType: {}.", result);
     return result;
   }
 
@@ -162,8 +168,8 @@ public class ProductTypeService {
     ProductType entity = getProductTypeEntityById(id);
     ProductTypeView result = ProductTypeMapper.toModel(entity);
 
-    LOG.debug("Exit. ProductTypeId: {}.", result);
-    LOG.trace("ProductType: {}.",result);
+    LOG.debug(LOG_EXIT_PRODUCTTYPEID, result);
+    LOG.trace("ProductType: {}.", result);
     return result;
   }
 
@@ -179,8 +185,8 @@ public class ProductTypeService {
     ProductType entity = getProductTypeEntityByKey(key);
     ProductTypeView result = ProductTypeMapper.toModel(entity);
 
-    LOG.debug("Exit. ProductTypeId: {}.", result.getId());
-    LOG.trace("ProductType: {}.",result);
+    LOG.debug(LOG_EXIT_PRODUCTTYPEID, result.getId());
+    LOG.trace("ProductType: {}.", result);
     return result;
   }
 
@@ -192,7 +198,7 @@ public class ProductTypeService {
    */
   // TODO: 16/12/13 queryconditions
   public PagedQueryResult<ProductTypeView> queryProductTypes(QueryConditions queryConditions) {
-    LOG.debug("Enter. Query conditions: {}.",queryConditions);
+    LOG.debug("Enter. Query conditions: {}.", queryConditions);
     List<ProductType> entities = productTypeRepository.findAll();
     List<ProductTypeView> productTypes = ProductTypeMapper.toModel(entities);
 
@@ -200,8 +206,8 @@ public class ProductTypeService {
     result.setResults(productTypes);
     result.setTotal(productTypes.size());
 
-    LOG.debug("Exit. Queried productType count: {}.",productTypes.size());
-    LOG.trace("ProductTypes: {}.",productTypes);
+    LOG.debug("Exit. Queried productType count: {}.", productTypes.size());
+    LOG.trace("ProductTypes: {}.", productTypes);
 
     return result;
   }
@@ -210,7 +216,7 @@ public class ProductTypeService {
    * ValidateNull version.
    *
    * @param version the version
-   * @param entity  the entity
+   * @param entity the entity
    */
   private void validateVersion(Integer version, ProductType entity) {
     if (!Objects.equals(version, entity.getVersion())) {
@@ -255,11 +261,11 @@ public class ProductTypeService {
    *
    * @param version the version
    * @param actions the update actions
-   * @param entity  the entity
+   * @param entity the entity
    * @return updated ProductType
    */
   private ProductTypeView updateProductTypeEntity(Integer version, List<UpdateAction> actions,
-                                                  ProductType entity) {
+      ProductType entity) {
     validateVersion(version, entity);
 
     actions.parallelStream().forEach(action -> {

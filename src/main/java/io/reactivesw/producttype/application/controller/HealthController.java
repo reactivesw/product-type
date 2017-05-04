@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class HealthController {
+
   /**
    * Log.
    */
@@ -28,7 +29,7 @@ public class HealthController {
    *
    * @param serviceName the service name
    */
-  public HealthController(@Value("${spring.application.name}")String serviceName) {
+  public HealthController(@Value("${spring.application.name}") String serviceName) {
     this.serviceName = serviceName;
   }
 
@@ -41,7 +42,7 @@ public class HealthController {
   public String healthCheck() {
     LOG.info("Enter.");
 
-    Long currentTime=System.currentTimeMillis();
+    Long currentTime = System.currentTimeMillis();
     LOG.info("Exit. Service name: {}, current time: {}.", serviceName,
         currentTime);
     return serviceName + ", system time: " + currentTime;
