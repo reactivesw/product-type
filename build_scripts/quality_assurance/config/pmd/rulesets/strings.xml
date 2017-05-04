@@ -241,7 +241,7 @@ public void bar(String string) {
         externalInfoUrl="https://pmd.github.io/pmd-5.5.1/pmd-java/rules/java/strings.html#InsufficientStringBufferDeclaration">
     <description>
 Failing to pre-size a StringBuffer or StringBuilder properly could cause it to re-size many times
-during runtime. This rule attempts to determine the total number the characters that are actually
+during runtime. This rule attempts to determine the total number the characters that are actually 
 passed into StringBuffer.append(), but represents a best guess "worst case" scenario. An empty
 StringBuffer/StringBuilder constructor initializes the object to 16 characters. This default
 is assumed if the length of the constructor can not be determined.
@@ -294,7 +294,7 @@ new StringBuffer() 		//  16
 new StringBuffer(6)		//  6
 new StringBuffer("hello world")  // 11 + 16 = 27
 new StringBuffer('A')	//  chr(A) = 65
-new StringBuffer("A")   //  1 + 16 = 17
+new StringBuffer("A")   //  1 + 16 = 17 
 
 new StringBuilder() 		//  16
 new StringBuilder(6)		//  6
