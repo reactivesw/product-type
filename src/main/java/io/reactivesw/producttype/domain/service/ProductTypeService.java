@@ -32,6 +32,11 @@ public class ProductTypeService {
   private static final Logger LOG = LoggerFactory.getLogger(ProductTypeService.class);
 
   /**
+   * Log exit with product type id.
+   */
+  private static final String LOG_EXIT_PRODUCTTYPEID="Exit. ProductTypeId: {}.";
+
+  /**
    * The Product type repository.
    */
   @Autowired
@@ -124,7 +129,7 @@ public class ProductTypeService {
     ProductType entity = getProductTypeEntityById(id);
     ProductTypeView result = updateProductTypeEntity(version, actions, entity);
 
-    LOG.debug("Exit. ProductTypeId: {}.",result.getId());
+    LOG.debug(LOG_EXIT_PRODUCTTYPEID,result.getId());
     LOG.trace("Updated ProductType: {}.",result);
     return result;
   }
@@ -145,7 +150,7 @@ public class ProductTypeService {
     ProductType entity = getProductTypeEntityByKey(key);
     ProductTypeView result = updateProductTypeEntity(version, actions, entity);
 
-    LOG.debug("Exit. ProductTypeId: {}.",result.getId());
+    LOG.debug(LOG_EXIT_PRODUCTTYPEID,result.getId());
     LOG.trace("Updated productType: {}.",result);
     return result;
   }
@@ -162,7 +167,7 @@ public class ProductTypeService {
     ProductType entity = getProductTypeEntityById(id);
     ProductTypeView result = ProductTypeMapper.toModel(entity);
 
-    LOG.debug("Exit. ProductTypeId: {}.", result);
+    LOG.debug(LOG_EXIT_PRODUCTTYPEID, result);
     LOG.trace("ProductType: {}.",result);
     return result;
   }
@@ -179,7 +184,7 @@ public class ProductTypeService {
     ProductType entity = getProductTypeEntityByKey(key);
     ProductTypeView result = ProductTypeMapper.toModel(entity);
 
-    LOG.debug("Exit. ProductTypeId: {}.", result.getId());
+    LOG.debug(LOG_EXIT_PRODUCTTYPEID, result.getId());
     LOG.trace("ProductType: {}.",result);
     return result;
   }

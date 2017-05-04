@@ -35,6 +35,11 @@ public class ProductTypeController {
   private static final Logger LOG = LoggerFactory.getLogger(ProductTypeController.class);
 
   /**
+   * Log exit with product type id.
+   */
+  private static final String LOG_EXIT_PRODUCTTYPEID="Exit. ProductTypeId: {}.";
+
+  /**
    * The Product type service.
    */
   @Autowired
@@ -53,7 +58,7 @@ public class ProductTypeController {
 
     ProductTypeView result = productTypeService.createProductType(productTypeDraft);
 
-    LOG.info("Exit. ProductTypeId: {}.",result.getId());
+    LOG.info(LOG_EXIT_PRODUCTTYPEID,result.getId());
     LOG.trace("ProductType: {}.",result);
 
     return result;
@@ -109,7 +114,7 @@ public class ProductTypeController {
             .getVersion(),
         updateRequest.getActions());
 
-    LOG.info("Exit. ProductTypeId: {}.",result.getId());
+    LOG.info(LOG_EXIT_PRODUCTTYPEID,result.getId());
     LOG.trace("Updated ProductType: {}.",result);
 
     return result;
@@ -131,7 +136,7 @@ public class ProductTypeController {
             .getVersion(),
         updateRequest.getActions());
 
-    LOG.info("Exit. ProductTypeId: {}.",result.getId());
+    LOG.info(LOG_EXIT_PRODUCTTYPEID,result.getId());
     LOG.trace("Updated ProductType: {}.",result);
     return result;
   }
@@ -147,7 +152,7 @@ public class ProductTypeController {
                                                 id) {
     LOG.info("Enter. ProductTypeId: {}.",id);
     ProductTypeView result = productTypeService.getProductTypeById(id);
-    LOG.info("Exit. ProductTypeId: {}.",result.getId());
+    LOG.info(LOG_EXIT_PRODUCTTYPEID,result.getId());
     LOG.trace("ProductType: {}.",result);
     return result;
   }
@@ -164,7 +169,7 @@ public class ProductTypeController {
     LOG.info("Enter. ProductTypeKey: {}.",key);
     ProductTypeView result = productTypeService.getProductTypeByKey(key);
 
-    LOG.info("Exit. ProductTypeId: {}.",result.getId());
+    LOG.info(LOG_EXIT_PRODUCTTYPEID,result.getId());
     LOG.trace("ProductType: {}.",result);
 
     return result;
