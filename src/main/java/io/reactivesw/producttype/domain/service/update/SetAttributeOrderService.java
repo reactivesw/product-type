@@ -3,10 +3,12 @@ package io.reactivesw.producttype.domain.service.update;
 import io.reactivesw.exception.ParametersException;
 import io.reactivesw.model.Updater;
 import io.reactivesw.producttype.application.model.action.SetAttributeOrder;
+import io.reactivesw.producttype.application.model.attributes.AttributeDefinitionView;
 import io.reactivesw.producttype.domain.model.AttributeDefinition;
 import io.reactivesw.producttype.domain.model.ProductType;
 import io.reactivesw.producttype.infrastructure.update.ProductTypeActionUtils;
 import io.reactivesw.producttype.infrastructure.update.UpdateAction;
+
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,7 @@ import java.util.stream.Collectors;
  */
 @Service(value = ProductTypeActionUtils.SET_ATTRIBUTE_ORDER)
 public class SetAttributeOrderService implements Updater<ProductType, UpdateAction> {
+
   /**
    * Change attribute order.
    * The attributes must be equal to the product type attributes (except for the order).
@@ -48,12 +51,12 @@ public class SetAttributeOrderService implements Updater<ProductType, UpdateActi
   /**
    * Sort attribute by order list.
    *
-   * @param entity              the entity
+   * @param entity the entity
    * @param orderdAttributeName the orderd attribute name
    * @return the list
    */
   private List<AttributeDefinition> sortAttributeByOrder(ProductType entity,
-                                                         List<String> orderdAttributeName) {
+      List<String> orderdAttributeName) {
     return entity.getAttributes().stream()
         .sorted((a1, a2) ->
             Integer.compare(orderdAttributeName.indexOf(a1.getName()),
@@ -68,11 +71,8 @@ public class SetAttributeOrderService implements Updater<ProductType, UpdateActi
    * @return the orderd attribute names
    */
   private List<String> getOrderdAttributeNames(SetAttributeOrder action) {
-    return action.getAttributes().parallelStream()
-        .map(attribute -> {
-              return attribute.getName();
-            }
-        ).collect(Collectors.toList());
+    return action.getAttributes().parallelStream().map(AttributeDefinitionView::getName)
+        .collect(Collectors.toList());
   }
 
   /**
@@ -82,10 +82,7 @@ public class SetAttributeOrderService implements Updater<ProductType, UpdateActi
    * @return the entity attribute names
    */
   private List<String> getEntityAttributeNames(ProductType entity) {
-    return entity.getAttributes().parallelStream().map(
-        attribute -> {
-          return attribute.getName();
-        }
-    ).collect(Collectors.toList());
+    return entity.getAttributes().parallelStream().map(AttributeDefinition::getName)
+        .collect(Collectors.toList());
   }
 }

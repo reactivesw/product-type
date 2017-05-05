@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
  */
 @Getter
 @Setter
-public class SetIsSearchable implements UpdateAction {
+public class SetSearchable implements UpdateAction {
 
   /**
    * The Attribute name.
@@ -26,7 +26,7 @@ public class SetIsSearchable implements UpdateAction {
    * The Is searchable.
    */
   @NotNull
-  private Boolean isSearchable;
+  private Boolean searchable;
 
   /**
    * Get update service name.

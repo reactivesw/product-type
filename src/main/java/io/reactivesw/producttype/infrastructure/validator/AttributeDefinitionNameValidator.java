@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
  * Validator for attributeDefinition.
  */
 public final class AttributeDefinitionNameValidator {
+
   /**
    * Log.
    */
@@ -38,9 +39,8 @@ public final class AttributeDefinitionNameValidator {
     List<AttributeDefinitionDraft> attributeDefinitions = productTypeDraft.getAttributes();
     if (attributeDefinitions != null && !attributeDefinitions.isEmpty()) {
       List<String> attributeDefinitionNames = attributeDefinitions.stream().map(
-          attributeDefinitionDraft -> {
-            return attributeDefinitionDraft.getName();
-          }).collect(Collectors.toList());
+          AttributeDefinitionDraft::getName
+      ).collect(Collectors.toList());
 
       Set<String> attributeSets = Sets.newHashSet(attributeDefinitionNames);
       if (attributeSets.size() < attributeDefinitionNames.size()) {

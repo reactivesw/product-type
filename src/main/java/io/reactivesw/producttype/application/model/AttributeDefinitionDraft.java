@@ -70,7 +70,7 @@ public class AttributeDefinitionDraft {
    * attribute type and are described there.
    */
   @NotNull
-  private Boolean isSearchable;
+  private Boolean searchable;
 
   /**
    * InputTip.

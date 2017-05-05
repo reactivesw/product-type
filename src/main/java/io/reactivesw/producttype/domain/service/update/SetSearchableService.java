@@ -1,19 +1,21 @@
 package io.reactivesw.producttype.domain.service.update;
 
 import io.reactivesw.model.Updater;
-import io.reactivesw.producttype.application.model.action.SetIsSearchable;
+import io.reactivesw.producttype.application.model.action.SetSearchable;
 import io.reactivesw.producttype.domain.model.ProductType;
 import io.reactivesw.producttype.infrastructure.update.ProductTypeActionUtils;
 import io.reactivesw.producttype.infrastructure.update.UpdateAction;
+
 import org.springframework.stereotype.Service;
 
 /**
  * Set searchable when update productType.
  */
 @Service(value = ProductTypeActionUtils.SET_ATTRIBUTE_SEARCHABLE)
-public class SetIsSearchableService implements Updater<ProductType, UpdateAction> {
+public class SetSearchableService implements Updater<ProductType, UpdateAction> {
+
   /**
-   * Set isSearchable to attribute.
+   * Set searchable to attribute.
    *
    * @param entity E
    * @param action UpdateAction
@@ -24,14 +26,10 @@ public class SetIsSearchableService implements Updater<ProductType, UpdateAction
       return;
     }
 
-    SetIsSearchable setIsSearchable = (SetIsSearchable) action;
+    SetSearchable setIsSearchable = (SetSearchable) action;
 
-    entity.getAttributes().forEach(
-        attribute -> {
-          if (attribute.getName().equals(setIsSearchable.getAttributeName())) {
-            attribute.setSearchable(setIsSearchable.getIsSearchable());
-          }
-        }
-    );
+    entity.getAttributes().stream()
+        .filter(attribute -> attribute.getName().equals(setIsSearchable.getActionName()))
+        .forEach(attribute -> attribute.setSearchable(setIsSearchable.getSearchable()));
   }
 }

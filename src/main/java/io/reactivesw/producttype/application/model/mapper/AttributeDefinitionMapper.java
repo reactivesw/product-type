@@ -27,12 +27,11 @@ public final class AttributeDefinitionMapper {
    * @return the set
    */
   public static List<AttributeDefinition> toEntity(List<AttributeDefinitionDraft>
-                                                       attributeDefinitionList) {
+      attributeDefinitionList) {
     List<AttributeDefinition> entities = Lists.newArrayList();
     if (attributeDefinitionList != null) {
-      entities = attributeDefinitionList.stream().map(
-          attributeDefinitionDraft -> toEntity(attributeDefinitionDraft)
-      ).collect(Collectors.toList());
+      entities = attributeDefinitionList.stream().map(AttributeDefinitionMapper::toEntity)
+          .collect(Collectors.toList());
     }
     return entities;
   }
@@ -48,7 +47,7 @@ public final class AttributeDefinitionMapper {
     entity.setName(draft.getName());
     entity.setInputHint(draft.getInputHint());
     entity.setRequired(draft.getIsRequired());
-    entity.setSearchable(draft.getIsSearchable());
+    entity.setSearchable(draft.getSearchable());
     entity.setType(draft.getType());
     entity.setAttributeConstraint(draft.getAttributeConstraint());
     entity.setLabel(LocalizedStringMapper.toEntityDefaultNew(draft.getLabel()));
@@ -63,9 +62,8 @@ public final class AttributeDefinitionMapper {
    * @return the list
    */
   public static List<AttributeDefinitionView> toModel(List<AttributeDefinition> entities) {
-    List<AttributeDefinitionView> models = entities.stream().map(
-        entity -> toModel(entity)
-    ).collect(Collectors.toList());
+    List<AttributeDefinitionView> models = entities.stream().map(AttributeDefinitionMapper::toModel)
+        .collect(Collectors.toList());
     return models;
   }
 
