@@ -66,7 +66,7 @@ public class AttributeDefinitionView {
    * filters as part build product search query.
    * The exact features that are enabled/disabled with this flag
    * depend on the concrete attribute type and are described there.
-   * The max size build a isSearchable field is restricted to 10922 characters.
+   * The max size build a searchable field is restricted to 10922 characters.
    * This constraint is enforced at both product creation and product update.
    * If the length build the input exceeds the maximum size an InvalidField error is returned.
    */

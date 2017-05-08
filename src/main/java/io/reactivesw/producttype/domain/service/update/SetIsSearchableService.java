@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class SetIsSearchableService implements Updater<ProductType, UpdateAction> {
 
   /**
-   * Set isSearchable to attribute.
+   * Set searchable to attribute.
    *
    * @param entity E
    * @param action UpdateAction
