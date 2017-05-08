@@ -1,12 +1,18 @@
 package io.reactivesw.producttype.domain.service.update;
 
 import io.reactivesw.model.Updater;
+import io.reactivesw.producttype.application.model.EnumValue;
 import io.reactivesw.producttype.application.model.action.SetPlainEnumValueLabel;
 import io.reactivesw.producttype.application.model.attributes.EnumAttributeType;
+import io.reactivesw.producttype.domain.model.AttributeDefinition;
 import io.reactivesw.producttype.domain.model.ProductType;
 import io.reactivesw.producttype.infrastructure.update.ProductTypeActionUtils;
 import io.reactivesw.producttype.infrastructure.update.UpdateAction;
+
 import org.springframework.stereotype.Service;
+
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 /**
  * Service to set plainEnumValue when update productType.
@@ -26,19 +32,18 @@ public class SetPlainEnumValueLabelService implements Updater<ProductType, Updat
       return;
     }
     SetPlainEnumValueLabel setPlainEnumValueLabel = (SetPlainEnumValueLabel) action;
-    entity.getAttributes().forEach(
-        attribute -> {
-          if (attribute.getName().equals(setPlainEnumValueLabel.getAttributeName())
-              && attribute.getType() instanceof EnumAttributeType) {
-            ((EnumAttributeType) attribute.getType()).getValues().forEach(
-                type -> {
-                  if (type.getKey().equals(setPlainEnumValueLabel.getNewValue().getKey())) {
-                    type.setLabel(setPlainEnumValueLabel.getNewValue().getLabel());
-                  }
-                }
-            );
-          }
-        }
-    );
+    Predicate<EnumValue> valuePredicate = type -> type.getKey()
+        .equals(setPlainEnumValueLabel.getNewValue().getKey());
+    Consumer<EnumValue> valueConsumer = type -> type
+        .setLabel(setPlainEnumValueLabel.getNewValue().getLabel());
+    Predicate<AttributeDefinition> attributeDefinitionPredicate = attribute ->
+        attribute.getName().equals(setPlainEnumValueLabel.getAttributeName()) && attribute
+            .getType() instanceof EnumAttributeType;
+    entity.getAttributes().stream()
+        .filter(attributeDefinitionPredicate).map(
+        AttributeDefinition::getType).map(EnumAttributeType.class::cast)
+        .map(EnumAttributeType::getValues)
+        .forEach(type -> type.stream().filter(valuePredicate).forEach(valueConsumer));
+
   }
 }

@@ -63,9 +63,7 @@ public final class ProductTypeMapper {
    */
   public static List<ProductTypeView> toModel(List<ProductType> entities) {
     return entities.stream()
-        .map(entity -> {
-          return toModel(entity);
-        }).collect(Collectors.toList());
+        .map(ProductTypeMapper::toModel).collect(Collectors.toList());
   }
 
   /**

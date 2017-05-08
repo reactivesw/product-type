@@ -3,12 +3,14 @@ package io.reactivesw.producttype.domain.service.update;
 import io.reactivesw.exception.NotExistException;
 import io.reactivesw.exception.ParametersException;
 import io.reactivesw.model.Updater;
+import io.reactivesw.producttype.application.model.EnumValue;
 import io.reactivesw.producttype.application.model.action.SetPlainEnumValueOrder;
 import io.reactivesw.producttype.application.model.attributes.EnumAttributeType;
 import io.reactivesw.producttype.domain.model.AttributeDefinition;
 import io.reactivesw.producttype.domain.model.ProductType;
 import io.reactivesw.producttype.infrastructure.update.ProductTypeActionUtils;
 import io.reactivesw.producttype.infrastructure.update.UpdateAction;
+
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,7 @@ import java.util.stream.Collectors;
  */
 @Service(value = ProductTypeActionUtils.SET_ENUM_VALUE_ORDER)
 public class SetPlainEnumValueOrderService implements Updater<ProductType, UpdateAction> {
+
   /**
    * Set plain enum value order.
    *
@@ -52,10 +55,10 @@ public class SetPlainEnumValueOrderService implements Updater<ProductType, Updat
   /**
    * Sets enum value order.
    *
-   * @param entity            the entity
+   * @param entity the entity
    * @param enumAttributeName the set plain enum value order
-   * @param enumType          the enum type
-   * @param orderdKeys        the orderd keys
+   * @param enumType the enum type
+   * @param orderdKeys the orderd keys
    */
   private void setEnumValueOrder(ProductType entity, String
       enumAttributeName, EnumAttributeType enumType, List<String> orderdKeys) {
@@ -95,24 +98,21 @@ public class SetPlainEnumValueOrderService implements Updater<ProductType, Updat
    * @return the enum attribute keys
    */
   private List<String> getEnumAttributeKeys(EnumAttributeType enumType) {
-    return enumType.getValues().parallelStream().map(
-        value -> {
-          return value.getKey();
-        }
-    ).collect(Collectors.toList());
+    return enumType.getValues().stream().map(EnumValue::getKey)
+        .collect(Collectors.toList());
   }
 
   /**
    * Gets enum attribute type.
    *
-   * @param entity            the entity
+   * @param entity the entity
    * @param enumAttributeName the set plain enum value order
    * @return the enum attribute type
    */
   private EnumAttributeType getEnumAttributeType(ProductType entity,
-                                                 String enumAttributeName) {
+      String enumAttributeName) {
     List<AttributeDefinition> attributes = entity.getAttributes();
-    Optional<AttributeDefinition> enumAttribute = attributes.parallelStream().filter(
+    Optional<AttributeDefinition> enumAttribute = attributes.stream().filter(
         attribute -> attribute.getName().equals(enumAttributeName)
             && attribute.getType() instanceof EnumAttributeType
     ).findAny();

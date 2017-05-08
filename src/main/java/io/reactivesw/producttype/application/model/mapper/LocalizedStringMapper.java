@@ -6,6 +6,7 @@ import io.reactivesw.producttype.domain.model.LocalizedStringValue;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Consumer;
 
 /**
  * Localized string mapper.
@@ -26,7 +27,7 @@ public final class LocalizedStringMapper {
    * @return the localized string
    */
   public static LocalizedString toModelDefaultNew(Set<LocalizedStringValue>
-                                                      localizedStringEntities) {
+      localizedStringEntities) {
     LocalizedString localizedString = new LocalizedString();
     if (localizedStringEntities != null) {
       localizedString = toModel(localizedStringEntities);
@@ -42,7 +43,7 @@ public final class LocalizedStringMapper {
    * @return the localized string
    */
   public static LocalizedString toModelDefaultNull(Set<LocalizedStringValue>
-                                                       localizedStringEntities) {
+      localizedStringEntities) {
     LocalizedString localizedString = null;
     if (localizedStringEntities != null) {
       localizedString = toModel(localizedStringEntities);
@@ -58,7 +59,7 @@ public final class LocalizedStringMapper {
    * @return Set build LocalizedStringEntity
    */
   public static Set<LocalizedStringValue> toEntityDefaultNew(LocalizedString
-                                                                 localizedString) {
+      localizedString) {
     Set<LocalizedStringValue> localizedStringEntities = new HashSet<>();
 
     if (localizedString != null && !localizedString.getLocalized().isEmpty()) {
@@ -76,7 +77,7 @@ public final class LocalizedStringMapper {
    * @return the set
    */
   public static Set<LocalizedStringValue> toEntityDefaultNull(LocalizedString
-                                                                  localizedString) {
+      localizedString) {
     Set<LocalizedStringValue> localizedStringEntities = null;
 
     if (localizedString != null && !localizedString.getLocalized().isEmpty()) {
@@ -94,12 +95,11 @@ public final class LocalizedStringMapper {
    * @return LocalizedString
    */
   private static LocalizedString toModel(Set<LocalizedStringValue>
-                                             localizedStringEntities) {
+      localizedStringEntities) {
     LocalizedString localizedString = new LocalizedString();
-    for (LocalizedStringValue localizedStringEntity : localizedStringEntities) {
-      localizedString.addKeyValue(localizedStringEntity.getLanguage(), localizedStringEntity
-          .getText());
-    }
+    Consumer<LocalizedStringValue> localizedStringValueConsumer = (localizedStringValue) -> localizedString
+        .addKeyValue(localizedStringValue.getLanguage(), localizedStringValue.getText());
+    localizedStringEntities.stream().forEach(localizedStringValueConsumer);
     return localizedString;
   }
 
@@ -117,18 +117,16 @@ public final class LocalizedStringMapper {
   /**
    * Convert LocalizedString  to Set build LocalizedStringValue.
    *
-   * @param localizedString         LocalizedString
+   * @param localizedString LocalizedString
    * @param localizedStringEntities Set build LocalizedStringValue
    * @return Set build LocalizedStringValue
    */
   private static Set<LocalizedStringValue> toEntity(LocalizedString localizedString,
-                                                    Set<LocalizedStringValue>
-                                                        localizedStringEntities) {
-    Set<Map.Entry<String, String>> localizedStrings = localizedString.getLocalized().entrySet();
-    for (Map.Entry localizedValue : localizedStrings) {
-      localizedStringEntities.add(build(localizedValue));
-    }
-
+      Set<LocalizedStringValue>
+          localizedStringEntities) {
+    Consumer<Map.Entry<String, String>> consumer = (localizedStringValue) -> localizedStringEntities
+        .add(build(localizedStringValue));
+    localizedString.getLocalized().entrySet().stream().forEach(consumer);
     return localizedStringEntities;
   }
 

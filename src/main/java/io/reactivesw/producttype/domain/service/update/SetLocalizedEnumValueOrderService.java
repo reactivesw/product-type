@@ -3,6 +3,7 @@ package io.reactivesw.producttype.domain.service.update;
 import io.reactivesw.exception.NotExistException;
 import io.reactivesw.exception.ParametersException;
 import io.reactivesw.model.Updater;
+import io.reactivesw.producttype.application.model.LocalizedEnumValue;
 import io.reactivesw.producttype.application.model.action.SetLocalizedEnumValueOrder;
 import io.reactivesw.producttype.application.model.attributes.LocalizedEnumAttributeType;
 import io.reactivesw.producttype.domain.model.AttributeDefinition;
@@ -22,6 +23,7 @@ import java.util.stream.Collectors;
  */
 @Service(value = ProductTypeActionUtils.SET_LOCALIZED_ENUM_VALUE_ORDER)
 public class SetLocalizedEnumValueOrderService implements Updater<ProductType, UpdateAction> {
+
   /**
    * Set plain enum value order.
    *
@@ -54,26 +56,22 @@ public class SetLocalizedEnumValueOrderService implements Updater<ProductType, U
   /**
    * Sets enum value order.
    *
-   * @param entity                     the entity
+   * @param entity the entity
    * @param localizedEnumAttributeName the set plain enum value order
-   * @param enumType                   the enum type
-   * @param orderdKeys                 the orderd keys
+   * @param enumType the enum type
+   * @param orderdKeys the orderd keys
    */
   private void setEnumValueOrder(ProductType entity, String localizedEnumAttributeName,
-                                 LocalizedEnumAttributeType enumType, List<String>
-                                     orderdKeys) {
+      LocalizedEnumAttributeType enumType, List<String>
+      orderdKeys) {
     enumType.setValues(enumType.getValues().parallelStream().sorted(
         (v1, v2) -> Integer.compare(orderdKeys.indexOf(v1.getKey()),
             orderdKeys.indexOf(v2.getKey()))
     ).collect(Collectors.toList()));
 
-    entity.getAttributes().parallelStream().forEach(
-        attribute -> {
-          if (attribute.getName().equals(localizedEnumAttributeName)) {
-            attribute.setType(enumType);
-          }
-        }
-    );
+    entity.getAttributes().stream()
+        .filter(attribute -> attribute.getName().equals(localizedEnumAttributeName))
+        .forEach(attribute -> attribute.setType(enumType));
   }
 
   /**
@@ -83,12 +81,8 @@ public class SetLocalizedEnumValueOrderService implements Updater<ProductType, U
    * @return the orderd keys
    */
   private List<String> getOrderKeys(SetLocalizedEnumValueOrder setLocalizedEnumValueOrder) {
-    return setLocalizedEnumValueOrder.getValues().parallelStream()
-        .map(
-            value -> {
-              return value.getKey();
-            }
-        ).collect(Collectors.toList());
+    return setLocalizedEnumValueOrder.getValues().stream().map(LocalizedEnumValue::getKey)
+        .collect(Collectors.toList());
   }
 
   /**
@@ -99,25 +93,22 @@ public class SetLocalizedEnumValueOrderService implements Updater<ProductType, U
    */
   private List<String> getLocalizedEnumAttributeKeys(
       LocalizedEnumAttributeType localizedEnumAttributeType) {
-    return localizedEnumAttributeType.getValues().parallelStream().map(
-        value -> {
-          return value.getKey();
-        }
-    ).collect(Collectors.toList());
+    return localizedEnumAttributeType.getValues().stream().map(LocalizedEnumValue::getKey)
+        .collect(Collectors.toList());
   }
 
   /**
    * g
    * Gets enum attribute type.
    *
-   * @param entity                     the entity
+   * @param entity the entity
    * @param localizedEnumAttributeName the set plain enum value order
    * @return the enum attribute type
    */
   private LocalizedEnumAttributeType getLocalizedEnumAttributeType(ProductType entity,
-                                                                   String localizedEnumAttributeName) {
+      String localizedEnumAttributeName) {
     List<AttributeDefinition> attributes = entity.getAttributes();
-    Optional<AttributeDefinition> enumAttribute = attributes.parallelStream().filter(
+    Optional<AttributeDefinition> enumAttribute = attributes.stream().filter(
         attribute -> attribute.getName().equals(localizedEnumAttributeName)
             && attribute.getType() instanceof LocalizedEnumAttributeType
     ).findAny();
