@@ -71,7 +71,7 @@ public class SetAttributeOrderService implements Updater<ProductType, UpdateActi
    * @return the orderd attribute names
    */
   private List<String> getOrderdAttributeNames(SetAttributeOrder action) {
-    return action.getAttributes().parallelStream().map(AttributeDefinitionView::getName)
+    return action.getAttributes().stream().map(AttributeDefinitionView::getName)
         .collect(Collectors.toList());
   }
 
@@ -82,7 +82,7 @@ public class SetAttributeOrderService implements Updater<ProductType, UpdateActi
    * @return the entity attribute names
    */
   private List<String> getEntityAttributeNames(ProductType entity) {
-    return entity.getAttributes().parallelStream().map(AttributeDefinition::getName)
+    return entity.getAttributes().stream().map(AttributeDefinition::getName)
         .collect(Collectors.toList());
   }
 }

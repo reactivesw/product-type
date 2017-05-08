@@ -37,9 +37,11 @@ public class SetLocalizedEnumValueLabelService implements Updater<ProductType, U
         .equals(setPlainEnumValueLabel.getNewValue().getKey());
     Consumer<LocalizedEnumValue> valueConsumer = type -> type
         .setLabel(setPlainEnumValueLabel.getNewValue().getLabel());
+    Predicate<AttributeDefinition> attributeDefinitionPredicate = attribute ->
+        attribute.getName().equals(setPlainEnumValueLabel.getAttributeName()) && attribute
+            .getType() instanceof LocalizedEnumAttributeType;
     entity.getAttributes().stream()
-        .filter(attribute -> attribute.getName().equals(setPlainEnumValueLabel.getAttributeName()))
-        .filter(attribute -> attribute.getType() instanceof LocalizedEnumAttributeType).map(
+        .filter(attributeDefinitionPredicate).map(
         AttributeDefinition::getType).map(LocalizedEnumAttributeType.class::cast)
         .map(LocalizedEnumAttributeType::getValues).forEach(
         type -> type.stream().filter(valuePredicate).forEach(valueConsumer)

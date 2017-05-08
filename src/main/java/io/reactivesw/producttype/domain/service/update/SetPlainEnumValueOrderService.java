@@ -98,7 +98,7 @@ public class SetPlainEnumValueOrderService implements Updater<ProductType, Updat
    * @return the enum attribute keys
    */
   private List<String> getEnumAttributeKeys(EnumAttributeType enumType) {
-    return enumType.getValues().parallelStream().map(EnumValue::getKey)
+    return enumType.getValues().stream().map(EnumValue::getKey)
         .collect(Collectors.toList());
   }
 
@@ -112,7 +112,7 @@ public class SetPlainEnumValueOrderService implements Updater<ProductType, Updat
   private EnumAttributeType getEnumAttributeType(ProductType entity,
       String enumAttributeName) {
     List<AttributeDefinition> attributes = entity.getAttributes();
-    Optional<AttributeDefinition> enumAttribute = attributes.parallelStream().filter(
+    Optional<AttributeDefinition> enumAttribute = attributes.stream().filter(
         attribute -> attribute.getName().equals(enumAttributeName)
             && attribute.getType() instanceof EnumAttributeType
     ).findAny();

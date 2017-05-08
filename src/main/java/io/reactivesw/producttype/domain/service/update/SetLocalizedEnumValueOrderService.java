@@ -81,7 +81,7 @@ public class SetLocalizedEnumValueOrderService implements Updater<ProductType, U
    * @return the orderd keys
    */
   private List<String> getOrderKeys(SetLocalizedEnumValueOrder setLocalizedEnumValueOrder) {
-    return setLocalizedEnumValueOrder.getValues().parallelStream().map(LocalizedEnumValue::getKey)
+    return setLocalizedEnumValueOrder.getValues().stream().map(LocalizedEnumValue::getKey)
         .collect(Collectors.toList());
   }
 
@@ -93,7 +93,7 @@ public class SetLocalizedEnumValueOrderService implements Updater<ProductType, U
    */
   private List<String> getLocalizedEnumAttributeKeys(
       LocalizedEnumAttributeType localizedEnumAttributeType) {
-    return localizedEnumAttributeType.getValues().parallelStream().map(LocalizedEnumValue::getKey)
+    return localizedEnumAttributeType.getValues().stream().map(LocalizedEnumValue::getKey)
         .collect(Collectors.toList());
   }
 
@@ -108,7 +108,7 @@ public class SetLocalizedEnumValueOrderService implements Updater<ProductType, U
   private LocalizedEnumAttributeType getLocalizedEnumAttributeType(ProductType entity,
       String localizedEnumAttributeName) {
     List<AttributeDefinition> attributes = entity.getAttributes();
-    Optional<AttributeDefinition> enumAttribute = attributes.parallelStream().filter(
+    Optional<AttributeDefinition> enumAttribute = attributes.stream().filter(
         attribute -> attribute.getName().equals(localizedEnumAttributeName)
             && attribute.getType() instanceof LocalizedEnumAttributeType
     ).findAny();

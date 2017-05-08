@@ -36,9 +36,11 @@ public class SetPlainEnumValueLabelService implements Updater<ProductType, Updat
         .equals(setPlainEnumValueLabel.getNewValue().getKey());
     Consumer<EnumValue> valueConsumer = type -> type
         .setLabel(setPlainEnumValueLabel.getNewValue().getLabel());
+    Predicate<AttributeDefinition> attributeDefinitionPredicate = attribute ->
+        attribute.getName().equals(setPlainEnumValueLabel.getAttributeName()) && attribute
+            .getType() instanceof EnumAttributeType;
     entity.getAttributes().stream()
-        .filter(attribute -> attribute.getName().equals(setPlainEnumValueLabel.getAttributeName()))
-        .filter(attribute -> attribute.getType() instanceof EnumAttributeType).map(
+        .filter(attributeDefinitionPredicate).map(
         AttributeDefinition::getType).map(EnumAttributeType.class::cast)
         .map(EnumAttributeType::getValues)
         .forEach(type -> type.stream().filter(valuePredicate).forEach(valueConsumer));
