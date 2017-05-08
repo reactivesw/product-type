@@ -108,7 +108,7 @@ public class AttributeDefinition {
   private TextInputHint inputHint;
 
   /**
-   * The Is searchable.
+   * The Is isSearchable.
    */
   @Column
   private Boolean searchable;

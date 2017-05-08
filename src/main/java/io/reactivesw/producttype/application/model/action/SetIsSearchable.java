@@ -9,11 +9,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * Be used to set searchable when update productType.
+ * Be used to set isSearchable when update productType.
  */
 @Getter
 @Setter
-public class SetSearchable implements UpdateAction {
+public class SetIsSearchable implements UpdateAction {
 
   /**
    * The Attribute name.
@@ -23,10 +23,10 @@ public class SetSearchable implements UpdateAction {
   private String attributeName;
 
   /**
-   * The Is searchable.
+   * The Is isSearchable.
    */
   @NotNull
-  private Boolean searchable;
+  private Boolean isSearchable;
 
   /**
    * Get update service name.

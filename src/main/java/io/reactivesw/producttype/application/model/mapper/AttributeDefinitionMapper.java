@@ -47,7 +47,7 @@ public final class AttributeDefinitionMapper {
     entity.setName(draft.getName());
     entity.setInputHint(draft.getInputHint());
     entity.setRequired(draft.getIsRequired());
-    entity.setSearchable(draft.getSearchable());
+    entity.setSearchable(draft.getIsSearchable());
     entity.setType(draft.getType());
     entity.setAttributeConstraint(draft.getAttributeConstraint());
     entity.setLabel(LocalizedStringMapper.toEntityDefaultNew(draft.getLabel()));

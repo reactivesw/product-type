@@ -11,7 +11,7 @@ import io.reactivesw.producttype.application.model.action.SetAttributeInputTip;
 import io.reactivesw.producttype.application.model.action.SetAttributeLabel;
 import io.reactivesw.producttype.application.model.action.SetAttributeOrder;
 import io.reactivesw.producttype.application.model.action.SetDescription;
-import io.reactivesw.producttype.application.model.action.SetSearchable;
+import io.reactivesw.producttype.application.model.action.SetIsSearchable;
 import io.reactivesw.producttype.application.model.action.SetKey;
 import io.reactivesw.producttype.application.model.action.SetLocalizedEnumValueLabel;
 import io.reactivesw.producttype.application.model.action.SetLocalizedEnumValueOrder;
@@ -42,7 +42,7 @@ import io.reactivesw.producttype.application.model.action.SetPlainEnumValueOrder
     @JsonSubTypes.Type(value = SetPlainEnumValueLabel.class, name = "setPlainEnumValueLabel"),
     @JsonSubTypes.Type(value = SetLocalizedEnumValueLabel.class,
         name = "setLocalizedEnumValueLabel"),
-    @JsonSubTypes.Type(value = SetSearchable.class, name = "setSearchable")})
+    @JsonSubTypes.Type(value = SetIsSearchable.class, name = "setIsSearchable")})
 public interface UpdateAction {
   /**
    * get action name.
